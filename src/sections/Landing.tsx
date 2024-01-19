@@ -42,7 +42,7 @@ export default function Landing() {
 				</div>
 			</div>
 			<h3 className='z-10 absolute bottom-10 left-10 md:left-32 font-thin'>
-				Sony A73 | Sigma 28-70mm f/2.8
+				Sony A7III | Sigma 28-70mm f/2.8
 			</h3>
 		</section>
 	);

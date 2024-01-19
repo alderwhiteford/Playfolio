@@ -12,7 +12,7 @@ type Skill = 'AWS' | 'AZURE' | 'C++' | 'CSS' | 'Docker' | 'Firebase' | 'GCP' | '
 type ProjectProps = {
     title: string,
     description: string,
-    github: string,
+    github?: string,
     skills: Skill[],
     video: StaticImageData,
 }
@@ -28,14 +28,18 @@ export default function Project({ title, description, github, skills, video}: Pr
                         </h3>
                         {description}
                         <div className='flex flex-row gap-3 items-center'>
-                            <a href={github} target="_blank" className='hidden lg:flex'>
-                                <Image 
-                                    src={GitHub}
-                                    alt=''
-                                    className='w-6 lg:w-8'
-                                />
-                            </a>
-                            <div className='h-[30px] w-[1.5px] bg-white mr-2 ml-2 hidden lg:flex'/>
+                            {github &&
+                            <>
+                                <a href={github} target="_blank" className='hidden lg:flex'>
+                                    <Image 
+                                        src={GitHub}
+                                        alt=''
+                                        className='w-6 lg:w-8'
+                                    />
+                                </a>
+                                <div className='h-[30px] w-[1.5px] bg-white mr-2 ml-2 hidden lg:flex'/>
+                            </>
+                            }
                             <div className='flex flex-row flex-wrap gap-3'>
                                 {skills.map((skill) =>
                                     <Image 

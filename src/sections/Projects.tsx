@@ -15,14 +15,14 @@ export default function Projects() {
                 <Project
                     title='ScheduleSync'
                     description="ScheduleSync is a group scheduling application that offers an efficient solution for identifying optimal meeting times for a class project, a birthday, or any other event you can dream of. "
-                    github="https://github.com/alderwhiteford/voxeti"
+                    github="https://github.com/alderwhiteford/When3Meet"
                     skills={['ReactJS', 'Redux', 'TypeScript', 'HTML', 'CSS', 'Firebase' ]}
                     video={WIP}
                 />
                 <Project
                     title='IsDevFree - OneASICS'
-                    description="IsDevFree is an internal tool I designed and developed for the OneASICS engineering team at ASICS Digital. It is meant to be used as a centalized, visual tool to see who was the last to interact with an environment. It also gives developers the ability to 'soft lock' an environment, a feature that notifies users, both in browser and the CLI, that they should avoid overriding changes until some specified date in the future."
-                    github="https://github.com/alderwhiteford/voxeti"
+                    description="IsDevFree is an internal tool I designed and developed for the OneASICS engineering team at ASICS Digital. It is meant to be used as a centalized, visual tool to see who was the last to interact with an environment. It also gives developers the ability to 'soft lock' an environment, a feature that notifies users, both in browser and the CLI, that they should avoid over-writing changes until some specified date in the future."
+                    github=""
                     skills={['ReactJS', 'JavaScript', 'HTML', 'CSS', 'Scala', 'MongoDB', 'AWS' ]}
                     video={IsDevFree}
                 />
@@ -36,7 +36,7 @@ export default function Projects() {
                 <Project
                     title='Boxy'
                     description="Boxy is a service based platform that allows city residents to monetize their underutilized living space for college students as a storage space on an hourly, daily, and monthly basis. Traditional storage solutions such as Uhaul, Public storage as well as our business model competitor Neighbor exist in the overall storage market."
-                    github="https://github.com/alderwhiteford/voxeti"
+                    github="https://github.com/alderwhiteford/Boxy"
                     skills={['NextJS', 'TypeScript', 'HTML', 'CSS', 'Postgres']}
                     video={Boxy}
                 />
