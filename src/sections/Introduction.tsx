@@ -5,7 +5,7 @@ import Reveal from "@/components/Reveal/Reveal";
 export default function Introduction() {
 	return (
 			<div 
-				className='bg-black w-full text-white p-48 pr-64 pl-64 text-[40px] font-thin'
+				className='bg-black w-full text-white p-10 md:p-48 pt-32 md:!pt-48 !pb-32 md:pr-64 md:pl-64 text-[30px] md:text-[40px] font-thin'
 			>
 				<Reveal>
 					Hey there 👋🏼

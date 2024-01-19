@@ -20,7 +20,7 @@ export default function Flip({ children } : FlipProps) {
         <div ref={ref} style={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
             <motion.div
 				variants={{
-						hidden: { opacity: 0, transform: 'rotateX(-45deg)' },
+						hidden: { opacity: 0, transform: 'rotateX(60deg)' },
 						visible: { opacity: 1, transform: 'rotateX(0deg)' },
 				}}
 				initial="hidden"
