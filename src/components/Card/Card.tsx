@@ -32,6 +32,9 @@ export default function Card({ backgroundImage, logo, position, dates, cursor, l
                         <h1 className='font-light'>
                             {position}
                         </h1>
+                        <h3 className='font-light text-base mt-3'>
+                            {dates}
+                        </h3>
                     </div>
                 </div>
             </a>
