@@ -5,7 +5,6 @@ import Link from "@/components/Link/Link";
 import Reveal from "@/components/Reveal/Reveal";
 
 export default function Landing() {
-  const [hoveredItem, setHoveredItem] = useState('');
 	const links = ['SKILLS', 'WORK', 'PROJECTS', 'CONTACT']
 
 	const scrollOnClick = (type: string) => {
@@ -37,8 +36,6 @@ export default function Landing() {
 						<Link 
 							key={link}
 							title={link}
-							setHoveredItem={setHoveredItem}
-							hoveredItem={hoveredItem}
 							onClick={scrollOnClick}
 						/>
 					)}
