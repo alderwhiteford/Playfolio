@@ -1,6 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 
 import GitHub from "../../assets/skillIcons/github.png";
+import EyeIcon from "../../assets/miscellaneous/eyeIcon.png"
 import { SkillMappings } from "../../utilties/SkillMappings";
 import Reveal from "../Reveal/Reveal";
 import Flip from "../Reveal/Flip";
@@ -15,9 +16,10 @@ type ProjectProps = {
     github?: string,
     skills: Skill[],
     video: StaticImageData,
+    liveLink?: string,
 }
 
-export default function Project({ title, description, github, skills, video}: ProjectProps) {
+export default function Project({ title, description, github, skills, video, liveLink}: ProjectProps) {
     return (
         <div className='grid grid-cols-1 lg:grid-cols-5 w-full gap-10 items-center lg:mt-10 lg:mb-10'>
             <div className='col-span-3 md:col-span-2'>
@@ -50,6 +52,18 @@ export default function Project({ title, description, github, skills, video}: Pr
                                     />
                                 )}
                             </div>
+                            {liveLink &&
+                                <>
+                                    <div className='h-[30px] w-[1.5px] bg-white mr-2 ml-2 hidden lg:flex'/>
+                                    <a href={liveLink} target="_blank" className='hidden lg:flex'>
+                                        <Image 
+                                            src={EyeIcon}
+                                            alt=''
+                                            className='w-6 lg:w-8'
+                                        />
+                                    </a>
+                                </>
+                            }
                         </div>
                     </div>
                 </Reveal>

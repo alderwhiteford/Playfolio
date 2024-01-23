@@ -4,6 +4,8 @@ import Voxeti from "../assets/videos/voxeti.gif";
 import Boxy from "../assets/videos/boxy.gif";
 import IsDevFree from "../assets/videos/isDevFree.gif";
 import WIP from "../assets/videos/wip.gif";
+import RapidMeet from "../assets/videos/RapidMeet.gif"
+import Playfolio from "../assets/videos/playfolio.gif"
 
 export default function Projects() {
     return (
@@ -13,16 +15,36 @@ export default function Projects() {
             </h1>
             <div className='mt-16 flex flex-col gap-24'>
                 <Project
-                    title='ScheduleSync'
-                    description="ScheduleSync is a group scheduling application that offers an efficient solution for identifying optimal meeting times for a class project, a birthday, or any other event you can dream of. "
-                    github="https://github.com/alderwhiteford/When3Meet"
-                    skills={['ReactJS', 'Redux', 'TypeScript', 'HTML', 'CSS', 'Firebase' ]}
+                    title='Scout Website - Rebrand'
+                    description="This project involves the development of a new website for Scout; Northeastern University's premier, student-led design studio. I am working alongside one other developer to help bring new life to the club's public online presence, while at the same time ensuring the page integrates with the club's current CMS."
+                    skills={['NextJS', 'TypeScript', 'HTML', 'CSS' ]}
                     video={WIP}
+                />
+                <Project
+                    title='Student Activity Calendar'
+                    description="I am leading a team of 10 engineers and 5 designers to to create the The Student Activity Calendar, a Northeastern University, student government backed project that aims to build a centralized tool for promoting involvement opportunities on campus. It will be a dual-application system that consists of a student-facing hybrid web/mobile app and a web dashboard for club executives. The tech stack will expand to include services such as Redis, MongoDB, and Pinecone as well as languages like Python."
+                    github="https://github.com/GenerateNU/sac"
+                    skills={['ReactJS', 'TypeScript', 'Golang', 'AWS' ]}
+                    video={WIP}
+                />
+                <Project
+                    title='RapidMeet'
+                    description="RapidMeet is a group scheduling application that offers an efficient solution for identifying optimal meeting times for a class project, a birthday, or any other event you can dream of. "
+                    github="https://github.com/alderwhiteford/RapidMeet"
+                    skills={['ReactJS', 'Redux', 'TypeScript', 'HTML', 'CSS', 'Firebase' ]}
+                    video={RapidMeet}
+                    liveLink='https://rapidmeet.io'
+                />
+                <Project
+                    title='Playfolio'
+                    description="Playfolio is... what you're taking a look at right now! It is still a work in progress with a management backend still in the development backlog. I'm looking forward to seeing how this site will grow over the coming year."
+                    github="https://github.com/alderwhiteford/Playfolio"
+                    skills={['NextJS', 'TypeScript', 'HTML', 'CSS' ]}
+                    video={Playfolio}
                 />
                 <Project
                     title='IsDevFree - OneASICS'
                     description="IsDevFree is an internal tool I designed and developed for the OneASICS engineering team at ASICS Digital. It is meant to be used as a centalized, visual tool to see who was the last to interact with an environment. It also gives developers the ability to 'soft lock' an environment, a feature that notifies users, both in browser and the CLI, that they should avoid over-writing changes until some specified date in the future."
-                    github=""
                     skills={['ReactJS', 'JavaScript', 'HTML', 'CSS', 'Scala', 'MongoDB', 'AWS' ]}
                     video={IsDevFree}
                 />
