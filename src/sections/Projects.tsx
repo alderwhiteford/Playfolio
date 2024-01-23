@@ -24,7 +24,7 @@ export default function Projects() {
                     title='Student Activity Calendar'
                     description="I am leading a team of 10 engineers and 5 designers to to create the The Student Activity Calendar, a Northeastern University, student government backed project that aims to build a centralized tool for promoting involvement opportunities on campus. It will be a dual-application system that consists of a student-facing hybrid web/mobile app and a web dashboard for club executives. The tech stack will expand to include services such as Redis, MongoDB, and Pinecone as well as languages like Python."
                     github="https://github.com/GenerateNU/sac"
-                    skills={['ReactJS', 'TypeScript', 'Golang', 'AWS' ]}
+                    skills={['ReactJS', 'TypeScript', 'Golang', 'Postgres', 'AWS' ]}
                     video={WIP}
                 />
                 <Project
