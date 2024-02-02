@@ -6,7 +6,7 @@ import { SkillMappings } from "../../utilties/SkillMappings";
 import Reveal from "../Reveal/Reveal";
 import Flip from "../Reveal/Flip";
 
-type Skill = 'AWS' | 'AZURE' | 'C++' | 'CSS' | 'Docker' | 'Firebase' | 'GCP' | 'Golang' 
+export type Skill = 'AWS' | 'AZURE' | 'C++' | 'CSS' | 'Docker' | 'Firebase' | 'GCP' | 'Golang' 
             | 'HTML' | 'Java' | 'JavaScript' | 'MongoDB' | 'NextJS' | 'Postgres' | 'Python'
             | 'ReactJS' | 'Redux' | 'Scala' | 'TypeScript';
 

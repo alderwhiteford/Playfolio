@@ -49,8 +49,8 @@ const config: Config = {
             opacity: '1',
             transform: 'translateY(0px)'
           }
-        }
-      }
+        },
+      },
     },
   },
   plugins: [],
