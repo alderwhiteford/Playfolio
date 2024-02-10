@@ -6,8 +6,9 @@ import IsDevFree from "../assets/videos/isDevFree.gif";
 import WIP from "../assets/videos/wip.gif";
 import RapidMeet from "../assets/videos/RapidMeet.gif"
 import Playfolio from "../assets/videos/playfolio.gif"
+import { SectionProps } from "@/pages";
 
-export default function Projects() {
+export default function Projects({ cursorEnter, cursorLeave }: SectionProps) {
     return (
         <section id='projects' className='w-screen bg-black text-white pr-10 pl-10 md:pr-32 md:pl-32 font-light text-[50px] pt-16 pb-16'>
             <h1>
@@ -19,6 +20,8 @@ export default function Projects() {
                     description="This project involves the development of a new website for Scout; Northeastern University's premier, student-led design studio. I am working alongside one other developer to help bring new life to the club's public online presence, while at the same time ensuring the page integrates with the club's current CMS."
                     skills={['NextJS', 'TypeScript', 'HTML', 'CSS' ]}
                     video={WIP}
+                    cursorEnter={cursorEnter}
+                    cursorLeave={cursorLeave}
                 />
                 <Project
                     title='Student Activity Calendar'
@@ -26,6 +29,8 @@ export default function Projects() {
                     github="https://github.com/GenerateNU/sac"
                     skills={['ReactJS', 'TypeScript', 'Golang', 'Postgres', 'AWS' ]}
                     video={WIP}
+                    cursorEnter={cursorEnter}
+                    cursorLeave={cursorLeave}
                 />
                 <Project
                     title='RapidMeet'
@@ -34,6 +39,8 @@ export default function Projects() {
                     skills={['ReactJS', 'Redux', 'TypeScript', 'HTML', 'CSS', 'Firebase' ]}
                     video={RapidMeet}
                     liveLink='https://rapidmeet.io'
+                    cursorEnter={cursorEnter}
+                    cursorLeave={cursorLeave}
                 />
                 <Project
                     title='Playfolio'
@@ -41,12 +48,16 @@ export default function Projects() {
                     github="https://github.com/alderwhiteford/Playfolio"
                     skills={['NextJS', 'TypeScript', 'HTML', 'CSS' ]}
                     video={Playfolio}
+                    cursorEnter={cursorEnter}
+                    cursorLeave={cursorLeave}
                 />
                 <Project
                     title='IsDevFree - OneASICS'
                     description="IsDevFree is an internal tool I designed and developed for the OneASICS engineering team at ASICS Digital. It is meant to be used as a centalized, visual tool to see who was the last to interact with an environment. It also gives developers the ability to 'soft lock' an environment, a feature that notifies users, both in browser and the CLI, that they should avoid over-writing changes until some specified date in the future."
                     skills={['ReactJS', 'JavaScript', 'HTML', 'CSS', 'Scala', 'MongoDB', 'AWS' ]}
                     video={IsDevFree}
+                    cursorEnter={cursorEnter}
+                    cursorLeave={cursorLeave}
                 />
                 <Project
                     title='Voxeti'
@@ -54,6 +65,8 @@ export default function Projects() {
                     github="https://github.com/alderwhiteford/voxeti"
                     skills={['ReactJS', 'Redux', 'TypeScript', 'HTML', 'CSS', 'C++', 'Golang', 'MongoDB', 'AWS' ]}
                     video={Voxeti}
+                    cursorEnter={cursorEnter}
+                    cursorLeave={cursorLeave}
                 />
                 <Project
                     title='Boxy'
@@ -61,6 +74,8 @@ export default function Projects() {
                     github="https://github.com/alderwhiteford/Boxy"
                     skills={['NextJS', 'TypeScript', 'HTML', 'CSS', 'Postgres']}
                     video={Boxy}
+                    cursorEnter={cursorEnter}
+                    cursorLeave={cursorLeave}
                 />
             </div>
         </section>

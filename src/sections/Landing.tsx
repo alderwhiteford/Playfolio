@@ -3,8 +3,9 @@ import LandingImage from '../assets/Landing.png'
 import { MouseEvent, useState } from "react";
 import Link from "@/components/Link/Link";
 import Reveal from "@/components/Reveal/Reveal";
+import { SectionProps } from "@/pages";
 
-export default function Landing() {
+export default function Landing({ cursorEnter, cursorLeave }: SectionProps) {
 	const links = ['SKILLS', 'WORK', 'PROJECTS', 'CONTACT']
 
 	const scrollOnClick = (type: string) => {
@@ -37,6 +38,8 @@ export default function Landing() {
 							key={link}
 							title={link}
 							onClick={scrollOnClick}
+							cursorEnter={cursorEnter}
+							cursorLeave={cursorLeave}
 						/>
 					)}
 				</div>

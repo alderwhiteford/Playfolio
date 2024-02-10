@@ -1,12 +1,13 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import EastIcon from '@mui/icons-material/East';
+import { SectionProps } from "@/pages";
 
-type LinkProps = {
+interface LinkProps extends SectionProps {
 	title: string
 	onClick: (type: string) => void
 }
 
-export default function Link({ title, onClick } : LinkProps) {
+export default function Link({ title, onClick, cursorEnter, cursorLeave } : LinkProps) {
 	const [hover, setHover] = useState(false);
 
 	return (
@@ -16,8 +17,14 @@ export default function Link({ title, onClick } : LinkProps) {
 			}
 			<div
 				className={`hover:cursor-pointer hover:text-[#FFAE42] hover:text-[32px] transition-all ease-in-out`}
-				onMouseEnter={() => setHover(true)}
-				onMouseLeave={() => setHover(false)}
+				onMouseEnter={() => {
+					setHover(true)
+					cursorEnter()
+				}}
+				onMouseLeave={() => {
+					setHover(false)
+					cursorLeave()
+				}}
 				onClick={() => onClick(title)}
 			>
 				{title}

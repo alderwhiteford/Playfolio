@@ -5,12 +5,13 @@ import EyeIcon from "../../assets/miscellaneous/eyeIcon.png"
 import { SkillMappings } from "../../utilties/SkillMappings";
 import Reveal from "../Reveal/Reveal";
 import Flip from "../Reveal/Flip";
+import { SectionProps } from "@/pages";
 
 export type Skill = 'AWS' | 'AZURE' | 'C++' | 'CSS' | 'Docker' | 'Firebase' | 'GCP' | 'Golang' 
             | 'HTML' | 'Java' | 'JavaScript' | 'MongoDB' | 'NextJS' | 'Postgres' | 'Python'
             | 'ReactJS' | 'Redux' | 'Scala' | 'TypeScript';
 
-type ProjectProps = {
+interface ProjectProps extends SectionProps {
     title: string,
     description: string,
     github?: string,
@@ -19,7 +20,7 @@ type ProjectProps = {
     liveLink?: string,
 }
 
-export default function Project({ title, description, github, skills, video, liveLink}: ProjectProps) {
+export default function Project({ title, description, github, skills, video, liveLink, cursorEnter, cursorLeave}: ProjectProps) {
     return (
         <div className='grid grid-cols-1 lg:grid-cols-5 w-full gap-10 items-center lg:mt-10 lg:mb-10'>
             <div className='col-span-3 md:col-span-2'>
@@ -32,7 +33,13 @@ export default function Project({ title, description, github, skills, video, liv
                         <div className='flex flex-row gap-3 items-center'>
                             {github &&
                             <>
-                                <a href={github} target="_blank" className='hidden lg:flex'>
+                                <a 
+                                    href={github}
+                                    target="_blank"
+                                    className='hidden lg:flex'
+                                    onMouseEnter={() => cursorEnter()}
+                                    onMouseLeave={() => cursorLeave()}
+                                >
                                     <Image 
                                         src={GitHub}
                                         alt=''
@@ -55,7 +62,13 @@ export default function Project({ title, description, github, skills, video, liv
                             {liveLink &&
                                 <>
                                     <div className='h-[30px] w-[1.5px] bg-white mr-2 ml-2 hidden lg:flex'/>
-                                    <a href={liveLink} target="_blank" className='hidden lg:flex'>
+                                    <a 
+                                        href={liveLink}
+                                        target="_blank"
+                                        className='hidden lg:flex'
+                                        onMouseEnter={() => cursorEnter()}
+                                        onMouseLeave={() => cursorLeave()}
+                                    >
                                         <Image 
                                             src={EyeIcon}
                                             alt=''
