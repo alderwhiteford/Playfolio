@@ -6,6 +6,7 @@ import { SkillMappings } from "../../utilties/SkillMappings";
 import Reveal from "../Reveal/Reveal";
 import Flip from "../Reveal/Flip";
 import { SectionProps } from "@/pages";
+import SkillIcon from "../Skill/SkillIcon";
 
 export type Skill = 'AWS' | 'AZURE' | 'C++' | 'CSS' | 'Docker' | 'Firebase' | 'GCP' | 'Golang' 
             | 'HTML' | 'Java' | 'JavaScript' | 'MongoDB' | 'NextJS' | 'Postgres' | 'Python'
@@ -51,11 +52,10 @@ export default function Project({ title, description, github, skills, video, liv
                             }
                             <div className='flex flex-row flex-wrap gap-3'>
                                 {skills.map((skill) =>
-                                    <Image 
+                                    <SkillIcon 
                                         key={skill}
-                                        src={SkillMappings[skill]}
-                                        alt=''
-                                        className='w-6 lg:w-8 self-center'
+                                        title={skill}
+                                        icon={SkillMappings[skill]}
                                     />
                                 )}
                             </div>
