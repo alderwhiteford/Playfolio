@@ -4,6 +4,7 @@ import CardExperience, { ExperienceSectionProps } from "../CardExperience/CardEx
 import { Skill } from "@/components/Project/Project";
 import Image from "next/image";
 import { SkillMappings } from "@/utilties/SkillMappings";
+import SkillIcon from "@/components/Skill/SkillIcon";
 
 const modalStyle = {
     position: 'absolute' as 'absolute',
@@ -72,11 +73,10 @@ export default function CardModal({ handleClose, open, link, logo, description, 
                 </div>
                 <div className='flex flex-row flex-wrap gap-3 mt-5'>
                     {skills?.map((skill) =>
-                        <Image 
+                        <SkillIcon 
                             key={skill}
-                            src={SkillMappings[skill]}
-                            alt=''
-                            className='w-6 lg:w-8 self-center'
+                            title={skill}
+                            icon={SkillMappings[skill]}
                         />
                     )}
                 </div>
