@@ -18,6 +18,7 @@ export type SectionProps = {
 export default function Home() {
   const { cursorOver, cursorEnter, cursorLeave } = useCursor();
   const [offHomeScreen, setOffHomeScreen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 	const ref = useRef<HTMLDivElement>(null);
 
   const handleScroll = () => {
@@ -27,22 +28,25 @@ export default function Home() {
 
   useEffect(() => {
 		document.addEventListener('scroll', handleScroll)
+    if (window) {
+      setIsMobile(window.matchMedia("(max-width: 600px)").matches);
+    }
 
 		return () => {
 		document.removeEventListener('scroll', handleScroll)
 		}
-	});
+	}, []);
 
   return (
     <>
-      <div 
+      {!isMobile && <div 
         id='circle-cursor'
         className={`fixed h-[40px] w-[40px] border-[1px] ${cursorOver ? 'border-[#FFAE42] border-2 shadow-md' : 'border-white'} rounded-full pointer-events-none z-50 -top-[20px] -left-[20px] transition-colors ease-in-out`}
-      />
+      />}
         <NavDropdown
           cursorEnter={cursorEnter}
           cursorLeave={cursorLeave}
-          isVisible={offHomeScreen} 
+          isVisible={offHomeScreen || isMobile} 
         />
       <div>
         <Landing 
