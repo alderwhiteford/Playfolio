@@ -6,8 +6,9 @@ import Work from '@/sections/Work'
 import Skills from '@/sections/Skills'
 import Projects from '@/sections/Projects'
 import Contact from '@/sections/Contact'
-import { useEffect, useState } from 'react'
 import useCursor from '@/hooks/useCursor'
+import { useEffect, useRef, useState } from 'react'
+import NavDropdown from '@/components/Dropdown/NavDropdown'
 
 export type SectionProps = {
   cursorEnter: () => void;
@@ -16,17 +17,38 @@ export type SectionProps = {
 
 export default function Home() {
   const { cursorOver, cursorEnter, cursorLeave } = useCursor();
+  const [offHomeScreen, setOffHomeScreen] = useState(false);
+	const ref = useRef<HTMLDivElement>(null);
+
+  const handleScroll = () => {
+		const bounds = ref.current?.getBoundingClientRect();
+		setOffHomeScreen(Boolean(bounds?.bottom && bounds.bottom < 50))
+	}
+
+  useEffect(() => {
+		document.addEventListener('scroll', handleScroll)
+
+		return () => {
+		document.removeEventListener('scroll', handleScroll)
+		}
+	});
 
   return (
     <>
       <div 
         id='circle-cursor'
-        className={`fixed h-[40px] w-[40px] border-[1px] ${cursorOver ? 'border-[#FFAE42] border-2 shadow-md' : 'border-white'} rounded-full pointer-events-none z-10 -top-[20px] -left-[20px] transition-colors ease-in-out`}
+        className={`fixed h-[40px] w-[40px] border-[1px] ${cursorOver ? 'border-[#FFAE42] border-2 shadow-md' : 'border-white'} rounded-full pointer-events-none z-50 -top-[20px] -left-[20px] transition-colors ease-in-out`}
       />
+        <NavDropdown
+          cursorEnter={cursorEnter}
+          cursorLeave={cursorLeave}
+          isVisible={offHomeScreen} 
+        />
       <div>
         <Landing 
           cursorEnter={cursorEnter}
           cursorLeave={cursorLeave}
+          ref={ref}
         />
         <Introduction />
         <Skills />

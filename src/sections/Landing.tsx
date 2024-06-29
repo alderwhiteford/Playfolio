@@ -1,27 +1,27 @@
 import Image from "next/image";
 import LandingImage from '../assets/Landing.png'
-import { MouseEvent, useState } from "react";
 import Link from "@/components/Link/Link";
 import Reveal from "@/components/Reveal/Reveal";
 import { SectionProps } from "@/pages";
+import { RefObject, forwardRef } from "react";
 
-export default function Landing({ cursorEnter, cursorLeave }: SectionProps) {
-	const links = ['SKILLS', 'WORK', 'PROJECTS', 'CONTACT']
+export const LINKS = ['SKILLS', 'WORK', 'PROJECTS', 'CONTACT'];
 
-	const scrollOnClick = (type: string) => {
-		const lowercaseType = type.toLowerCase()
-		const element = document.getElementById(lowercaseType);
-		element?.scrollIntoView({ behavior: 'smooth' })
-	}
-	
+export const scrollOnClick = (type: string) => {
+	const lowercaseType = type.toLowerCase();
+	const element = document.getElementById(lowercaseType);
+	element?.scrollIntoView({ behavior: 'smooth' });
+};
+
+const Landing = forwardRef(({ cursorEnter, cursorLeave }: SectionProps, ref) => {
 	return (
 		<section className='w-screen h-screen relative text-white'>
-			<Image 
+			<Image
 				alt='alder-portfolio-landing'
 				className='w-full h-full object-cover absolute'
 				src={LandingImage}
 			/>
-			<div className='w-full h-full p-10 md:p-32 absolute z-10 flex md: justify-between items-center'>
+			<div className='w-full h-full p-10 md:p-32 absolute z-10 flex md:justify-between items-center'>
 				<div className='self-center'>
 					<Reveal box={false}>
 						<h1 className='text-[60px] md:text-[90px] md:max-w-[50%] leading-[60px] md:leading-[90px]'>
@@ -32,8 +32,8 @@ export default function Landing({ cursorEnter, cursorLeave }: SectionProps) {
 						software engineer | photographer
 					</h3>
 				</div>
-				<div className='hidden lg:flex lg:flex-col text-[30px] font-thin text-end animate-fadeInRight'>
-					{links.map((link) => 
+				<div ref={ref as RefObject<HTMLDivElement>} className='hidden lg:flex lg:flex-col text-[30px] font-thin text-end animate-fadeInRight'>
+					{LINKS.map((link) => 
 						<Link 
 							key={link}
 							title={link}
@@ -49,4 +49,7 @@ export default function Landing({ cursorEnter, cursorLeave }: SectionProps) {
 			</h3>
 		</section>
 	);
-}
+});
+
+Landing.displayName = 'Landing';
+export default Landing;

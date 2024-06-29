@@ -8,45 +8,42 @@ export default function Work() {
             </h1>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10'>
                 <Card 
-                    backgroundImage='https://i.imgur.com/eqpNJeE.jpg'
-                    logo='https://i.imgur.com/9OrIVkq.png'
-                    position='Web Developer'
-                    dates='Dec. 2023 - Present'
-                    cursor='https://i.imgur.com/usBJmYm.png'
-                    link="https://scout.camd.northeastern.edu/"
-                    description="Scout is Northeastern's one and only student-led design studio. It is composed of a series of creative teams that work solely with clients from within the university's entrepreneurial ecostystem."
+                    backgroundImage='https://i.imgur.com/4XwaPso.jpg'
+                    logo='https://i.imgur.com/A990JUa.png'
+                    position='Photographer'
+                    dates='Sep. 2022 - Present' 
+                    cursor='https://i.imgur.com/SfSmpRo.png'
+                    link="https://www.tastemakersmag.com/"
+                    description="Tastemakers Magazine exists to give Northeastern students a voice in the music industry and help members develop their craft."
                     experiences={[
                         {
-                            position: 'Web Developer',
-                            dates: 'Dec. 2023 - Present',
+                            position: 'Photographer',
+                            dates: 'Sep. 2022 - Present',
                             description: [
-                                "Co-developing an updated website for Scout. This project will be released at the end of April for public use to coincide with the launch of a wider rebrand.",
+                                "As a concert photographer, I am responsible for capturing and editing photos of artists at local venues for social media, the website, and magazine publication. All images are taken using a Sony A7iii.",
                             ],
                             inProgress: true
                         }
-                    ]}
-                    skills={[
-                        'NextJS', 'HTML', 'CSS', 'TypeScript'
                     ]}
                 />
                 <Card 
                     backgroundImage='https://i.imgur.com/WSFCoiE.jpg'
                     logo='https://i.imgur.com/ZoV1ekp.png'
                     position='Software Project Lead'
-                    dates='Jan. 2023 - Present'
+                    dates='Jan. 2023 - Jun. 2024'
                     cursor='https://i.imgur.com/vmCGXvD.png'
                     link="https://www.instagram.com/generatenu/"
                     description="Generate is a student-led product development studio, working with industry clients and Northeastern founders from all backgrounds to turn their vision into reality."
                     experiences={[
                         {
                             position: 'Software Project Lead',
-                            dates: 'Nov. 2023 - Present',
+                            dates: 'Nov. 2023 - Jun. 2024',
                             description: [
-                                "Leading a team of 10 engineers and 5 designers to to create the The Student Activity Calendar, a Northeastern, student government backed project that aims to build a centralized tool for promoting involvement opportunities on campus.",
-                                "Guide repository, schema and authentication design, CI/CD tooling, as well as database and language selection.",
-                                "Conduct client interviews and direct design focus to ensure all features of the application are value additive."
+                                "Led a team of 10 engineers and 5 designers to to create the The Student Activity Calendar, a Northeastern, student government backed project that aims to build a centralized tool for promoting involvement opportunities on campus.",
+                                "Guided repository, schema and authentication design, CI/CD tooling, as well as database and language selection.",
+                                "Conducted client interviews and user focus groups to ensure all features of the application are value additive."
                             ],
-                            inProgress: true
+                            inProgress: false
                         },
                         {
                             position: 'Software Engineer - Voxeti',
@@ -74,22 +71,25 @@ export default function Work() {
                     ]}
                 />
                 <Card 
-                    backgroundImage='https://i.imgur.com/4XwaPso.jpg'
-                    logo='https://i.imgur.com/A990JUa.png'
-                    position='Photographer'
-                    dates='Sep. 2022 - Present' 
-                    cursor='https://i.imgur.com/SfSmpRo.png'
-                    link="https://www.tastemakersmag.com/"
-                    description="Tastemakers Magazine exists to give Northeastern students a voice in the music industry and help members develop their craft."
+                    backgroundImage='https://i.imgur.com/eqpNJeE.jpg'
+                    logo='https://i.imgur.com/9OrIVkq.png'
+                    position='Web Developer'
+                    dates='Dec. 2023 - May 2024'
+                    cursor='https://i.imgur.com/usBJmYm.png'
+                    link="https://scout.camd.northeastern.edu/"
+                    description="Scout is Northeastern's one and only student-led design studio. It is composed of a series of creative teams that work solely with clients from within the university's entrepreneurial ecostystem."
                     experiences={[
                         {
-                            position: 'Photographer',
-                            dates: 'Sep. 2022 - Present',
+                            position: 'Web Developer',
+                            dates: 'Dec. 2023 - May 2024',
                             description: [
-                                "As a concert photographer, I am responsible for capturing and editing photos of artists at local venues for social media, the website, and magazine publication. All images are taken using a Sony A7iii.",
+                                "Co-developed an updated website for Scout. This project will be released at the end of August / beginning of September for public use to coincide with the launch of a wider rebrand.",
                             ],
-                            inProgress: true
+                            inProgress: false
                         }
+                    ]}
+                    skills={[
+                        'NextJS', 'HTML', 'CSS', 'TypeScript'
                     ]}
                 />
                 <Card 
