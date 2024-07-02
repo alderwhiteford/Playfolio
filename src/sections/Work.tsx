@@ -8,33 +8,22 @@ export default function Work() {
             </h1>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10'>
                 <Card 
-                    backgroundImage='https://i.imgur.com/4XwaPso.jpg'
-                    logo='https://i.imgur.com/A990JUa.png'
-                    position='Photographer'
-                    dates='Sep. 2022 - Present' 
-                    cursor='https://i.imgur.com/SfSmpRo.png'
-                    link="https://www.tastemakersmag.com/"
-                    description="Tastemakers Magazine exists to give Northeastern students a voice in the music industry and help members develop their craft."
-                    experiences={[
-                        {
-                            position: 'Photographer',
-                            dates: 'Sep. 2022 - Present',
-                            description: [
-                                "As a concert photographer, I am responsible for capturing and editing photos of artists at local venues for social media, the website, and magazine publication. All images are taken using a Sony A7iii.",
-                            ],
-                            inProgress: true
-                        }
-                    ]}
-                />
-                <Card 
                     backgroundImage='https://i.imgur.com/WSFCoiE.jpg'
                     logo='https://i.imgur.com/ZoV1ekp.png'
-                    position='Software Project Lead'
-                    dates='Jan. 2023 - Jun. 2024'
+                    position='Chief of Software'
+                    dates='Jul. 2024 - Present'
                     cursor='https://i.imgur.com/vmCGXvD.png'
                     link="https://www.instagram.com/generatenu/"
                     description="Generate is a student-led product development studio, working with industry clients and Northeastern founders from all backgrounds to turn their vision into reality."
                     experiences={[
+                        {
+                            position: 'Chief of Software',
+                            dates: 'Jul. 2024 - Present',
+                            description: [
+                                "Responsible for guiding the direction of software development at Generate"
+                            ],
+                            inProgress: true
+                        },
                         {
                             position: 'Software Project Lead',
                             dates: 'Nov. 2023 - Jun. 2024',
@@ -68,6 +57,25 @@ export default function Work() {
                     ]}
                     skills={[
                         'NextJS', 'ReactJS', 'Redux', 'HTML', 'CSS', 'TypeScript', 'Golang', 'C++', 'Python', 'Postgres', 'MongoDB', 'Docker', 'AWS' 
+                    ]}
+                />
+                <Card 
+                    backgroundImage='https://i.imgur.com/4XwaPso.jpg'
+                    logo='https://i.imgur.com/A990JUa.png'
+                    position='Photographer'
+                    dates='Sep. 2022 - Present' 
+                    cursor='https://i.imgur.com/SfSmpRo.png'
+                    link="https://www.tastemakersmag.com/"
+                    description="Tastemakers Magazine exists to give Northeastern students a voice in the music industry and help members develop their craft."
+                    experiences={[
+                        {
+                            position: 'Photographer',
+                            dates: 'Sep. 2022 - Present',
+                            description: [
+                                "As a concert photographer, I am responsible for capturing and editing photos of artists at local venues for social media, the website, and magazine publication. All images are taken using a Sony A7iii.",
+                            ],
+                            inProgress: true
+                        }
                     ]}
                 />
                 <Card 
