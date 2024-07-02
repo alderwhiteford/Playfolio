@@ -42,7 +42,7 @@ export default function CardModal({ handleClose, open, link, logo, description, 
             onClose={handleClose}
             disableAutoFocus
         >
-            <Box className='absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] w-[95%] md:w-[700px] max-h-[80%] bg-black shadow-lg p-[40px] rounded-lg flex flex-col gap-[20px] overflow-scroll'>
+            <Box className='absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] w-[95%] md:w-[700px] max-h-[80%] bg-gray-900 bg-opacity-90 border-gray-500 border-[1px] shadow-lg p-[40px] rounded-xl flex flex-col gap-[20px] overflow-scroll'>
                 <a 
                     href={link}
                     target='_blank'
