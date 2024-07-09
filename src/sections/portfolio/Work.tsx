@@ -171,7 +171,7 @@ export default function Work() {
                             inProgress: false
                         },
                     ]}
-                    skills={['Java', 'Python', 'AZURE']}
+                    skills={['Java', 'Python', 'Azure']}
                 />
                 <Card
                     backgroundImage='https://i.imgur.com/2EoWXS3.jpg'

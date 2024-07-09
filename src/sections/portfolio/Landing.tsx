@@ -1,5 +1,5 @@
 import Image from "next/image";
-import LandingImage from '../assets/Landing.png'
+import LandingImage from '../../assets/Landing.png'
 import Link from "@/components/Link/Link";
 import Reveal from "@/components/Reveal/Reveal";
 import { SectionProps } from "@/pages";

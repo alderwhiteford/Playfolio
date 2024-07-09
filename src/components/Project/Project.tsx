@@ -2,13 +2,13 @@ import Image, { StaticImageData } from "next/image";
 
 import GitHub from "../../assets/skillIcons/github.png";
 import EyeIcon from "../../assets/miscellaneous/eyeIcon.png"
-import { SkillMappings } from "../../utilties/SkillMappings";
+import { SkillMappings } from "../../utilties/skillMappings";
 import Reveal from "../Reveal/Reveal";
 import Flip from "../Reveal/Flip";
 import { SectionProps } from "@/pages";
 import SkillIcon from "../Skill/SkillIcon";
 
-export type Skill = 'AWS' | 'AZURE' | 'C++' | 'CSS' | 'Docker' | 'Firebase' | 'GCP' | 'Golang' 
+export type Skill = 'AWS' | 'Azure' | 'C++' | 'CSS' | 'Docker' | 'Firebase' | 'GCP' | 'Golang' 
             | 'HTML' | 'Java' | 'JavaScript' | 'MongoDB' | 'NextJS' | 'Postgres' | 'Python'
             | 'ReactJS' | 'Redux' | 'Scala' | 'TypeScript';
 
