@@ -1,6 +1,6 @@
 'use client'
 
-import Reveal from "@/components/Reveal/Reveal";
+import Reveal from "@/components/playfolio/Reveal/Reveal";
 
 export default function Introduction() {
 	return (

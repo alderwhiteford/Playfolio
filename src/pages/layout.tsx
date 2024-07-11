@@ -1,16 +1,16 @@
 'use client'
 
-import useAlert from "@/hooks/useAlert";
 import useFirebase from "@/hooks/useFirebase";
+import { store } from "@/store/store";
 import { ThemeProvider, createTheme } from "@mui/material";
 import { onAuthStateChanged } from "firebase/auth";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { Provider } from "react-redux";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     const router = useRouter();
     const { FirebaseProvider, auth } = useFirebase();
-    const { AlertProvider, ErrorAlert, SuccessAlert } = useAlert();
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
@@ -35,11 +35,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return (
         <ThemeProvider theme={darkTheme}>
             <FirebaseProvider>
-                <AlertProvider>
-                    <ErrorAlert />
-                    <SuccessAlert />
+                <Provider store={store}>
                     {children}
-                </AlertProvider>
+                </Provider>
             </FirebaseProvider>
         </ThemeProvider>
     )

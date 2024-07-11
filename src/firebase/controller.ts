@@ -1,6 +1,7 @@
+import { AboutPage } from "@/types/models";
 import { FirebaseApp, initializeApp } from "firebase/app";
 import { Auth, getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { Firestore, getFirestore } from "firebase/firestore";
+import { doc, Firestore, getDoc, getFirestore, setDoc } from "firebase/firestore";
 
 export default class FirebaseController {
   public app: FirebaseApp
@@ -26,11 +27,29 @@ export default class FirebaseController {
     this.auth = firebaseAuth
   }
 
+  /** AUTHENTICATION */
   public async signIn(email: string, password: string) {
       await signInWithEmailAndPassword(this.auth, email, password)
   }
 
   public async signOut() {
       await this.auth.signOut()
+  }
+
+  /** ABOUT PAGE */
+  public async updateAbout(greeting: string, introduction: string) {
+      const docRef = doc(this.db, 'sections', 'about')
+
+      await setDoc(docRef, {
+          greeting,
+          introduction
+      });
+  }
+
+  public async fetchAbout(): Promise<AboutPage> {
+      const docRef = doc(this.db, 'sections', 'about')
+      const docSnap = await getDoc(docRef)
+
+      return docSnap.data() as AboutPage
   }
 }

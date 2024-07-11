@@ -1,10 +1,12 @@
 const errorMessages = {
     failedToSignIn: "Failed to sign in, please try again!",
-    failedToSignOut: "Failed to log out, please try again!"
+    failedToSignOut: "Failed to log out, please try again!",
+    failedToUpdateAbout: "Failed updaing the About section, please try again"
 }
 
 const successMessages = {
-    signedIn: "Signed in successfully!"
+    signedIn: "Signed in successfully!",
+    updatedAbout: "Successfully updated About section!"
 }
 
 export type ErrorCode = keyof typeof errorMessages;

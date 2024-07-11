@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import { Box, Modal } from "@mui/material"
 import CardExperience, { ExperienceSectionProps } from "../CardExperience/CardExperience";
-import { Skill } from "@/components/Project/Project";
+import { Skill } from "@/components/playfolio/Project/Project";
 import { SkillMappings } from "@/utilties/skillMappings";
-import SkillIcon from "@/components/Skill/SkillIcon";
+import SkillIcon from "@/components/playfolio/Skill/SkillIcon";
 
 type CardModalProps = {
     handleClose: () => void,

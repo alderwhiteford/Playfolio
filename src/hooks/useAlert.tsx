@@ -1,26 +1,17 @@
+import { resetError, resetSuccess } from "@/store/alertSlice";
+import { useStateDispatch, useStateSelector } from "@/store/store";
 import { ErrorCode, getErrorMessage, SuccessCode, getSuccessMessage } from "@/utilties/alerts";
 import { Alert, Snackbar } from "@mui/material";
-import { useState, createContext } from "react";
 
-export type AlertContextProps = {
-    setError: (error: ErrorCode | null) => void;
-    setSuccess: (success: SuccessCode | null) => void;
-    error: ErrorCode | null;
-    success: SuccessCode | null;
-}
-
-export const AlertContext = createContext<AlertContextProps | null>(null);
 
 export default function useAlert() {
-    const [error, setError] = useState<ErrorCode | null>(null);
-    const [success, setSuccess] = useState<SuccessCode | null>(null);
+    const { success, successMessage, error, errorMessage } = useStateSelector(state => state.alert)
+    const dispatch = useStateDispatch();
 
     // Handle error alerts:
-    const ErrorAlert = () => {
-        if (!error) return null;
-
+    const ErrorAlert = (error: ErrorCode) => {
         const onClose = () => {
-            setError(null);
+            dispatch(resetError());
         }
 
         return (
@@ -38,11 +29,9 @@ export default function useAlert() {
     }
 
     // Handle success alerts:
-    const SuccessAlert = () => {
-        if (!success) return null;
-
+    const SuccessAlert = (success: SuccessCode) => {
         const onClose = () => {
-            setSuccess(null);
+            dispatch(resetSuccess());
         }
 
         return (
@@ -59,13 +48,14 @@ export default function useAlert() {
         )
     }
 
-    const AlertProvider = ({ children }: { children: React.ReactNode }) => {
+    const AlertProvider = () => {
         return (
-            <AlertContext.Provider value={{ setError, setSuccess, error, success }}>
-                {children}
-            </AlertContext.Provider>
+            <div>
+                {error && ErrorAlert(errorMessage as ErrorCode)}
+                {success && SuccessAlert(successMessage as SuccessCode)}
+            </div>
         )
     }
 
-    return { AlertProvider, ErrorAlert, SuccessAlert }
+    return { AlertProvider }
 }

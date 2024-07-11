@@ -1,8 +1,7 @@
 import Image, { StaticImageData } from "next/image";
-import { Tooltip, Zoom } from "@mui/material";
 
-import Flip from "../Reveal/Flip";
-import PlayfolioTooltip from "../Tooltip/Tooltip";
+import Flip from "@/components/playfolio/Reveal/Flip";
+import PlayfolioTooltip from "@/components/playfolio/Tooltip/Tooltip";
 
 type SkillProps = {
     title: string,

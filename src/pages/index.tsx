@@ -8,7 +8,7 @@ import Projects from '@/sections/portfolio/Projects'
 import Contact from '@/sections/portfolio/Contact'
 import useCursor from '@/hooks/useCursor'
 import { useEffect, useRef, useState } from 'react'
-import NavDropdown from '@/components/Dropdown/NavDropdown'
+import NavDropdown from '@/components/playfolio/Dropdown/NavDropdown'
 
 export type SectionProps = {
   cursorEnter: () => void;

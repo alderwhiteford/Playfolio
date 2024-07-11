@@ -11,7 +11,7 @@ type NavbarProps = {
 
 export default function Navbar({ sections, selectedSection, sectionIcons, setSelectedSection, signOut }: NavbarProps) {
     return (
-        <div className='w-screen p-8 bg-black text-white flex flex-row justify-between items-center fixed'>
+        <div className='w-screen p-8 bg-black text-white flex flex-row justify-between items-center'>
             <div className='flex flex-row gap-12'>
                 {sections.map(section => {
                     const Icon = sectionIcons[section]

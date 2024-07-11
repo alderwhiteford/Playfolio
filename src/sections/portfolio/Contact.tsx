@@ -1,4 +1,4 @@
-import TouchPoint from "@/components/Contact/Contact";
+import TouchPoint from "@/components/playfolio/Contact/Contact";
 
 export default function Contact() {
     return (

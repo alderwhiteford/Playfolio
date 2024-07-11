@@ -1,4 +1,4 @@
-import Card from "@/components/Card/Card";
+import Card from "@/components/playfolio/Card/Card";
 
 export default function Work() {
     return (
