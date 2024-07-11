@@ -1,8 +1,8 @@
 import { AboutPage } from "@/types/models";
 import { FirebaseApp, initializeApp } from "firebase/app";
 import { Auth, getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { collection, deleteDoc, doc, Firestore, getDoc, getDocs, getFirestore, query, setDoc, where } from "firebase/firestore";
-import { FirebaseStorage, getStorage } from "firebase/storage";
+import { addDoc, collection, deleteDoc, doc, Firestore, getDoc, getDocs, getFirestore, query, setDoc, where } from "firebase/firestore";
+import { FirebaseStorage, getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 
 export default class FirebaseController {
   public app: FirebaseApp
@@ -71,5 +71,19 @@ export default class FirebaseController {
     querySnapshot.forEach(async (doc) => {
       await deleteDoc(doc.ref);
     });
+  }
+
+  public async createSkill(title: string, logo: File) {
+    const storageRef = ref(this.storage, logo.name);
+
+    await uploadBytes(storageRef, logo);
+    const downloadUrl = await getDownloadURL(storageRef)
+
+    await addDoc(collection(this.db, "skills"), {
+      title: title,
+      logo: downloadUrl,
+    });
+
+    return { title, logo: downloadUrl }
   }
 }

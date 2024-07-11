@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import Image, { StaticImageData } from "next/image";
 
 import Flip from "@/components/playfolio/Reveal/Flip";
 import PlayfolioTooltip from "@/components/playfolio/Tooltip/Tooltip";
+import { SkillMappings } from "@/utilties/skillMappings";
 
 type SkillProps = {
     title: string,
@@ -14,11 +14,12 @@ export default function Skill({ title, icon, dashboard }: SkillProps) {
     return (
         <div>
             {dashboard ? (
-                <div className='w-[50px] h-[50px] md:w-[100px] md:h-[100px] bg-gray-500 bg-opacity-20 border-gray-500 border-[1px] rounded-2xl flex items-center justify-center text-lg hover:border-white transition-all ease-in-out hover:transition-all hover:ease-in-out'>
+                <div className='w-[40px] h-[40px] md:w-[75px] md:h-[75px] bg-gray-500 bg-opacity-20 border-gray-500 border-[1px] rounded-2xl flex items-center justify-center text-lg hover:border-white transition-all ease-in-out hover:transition-all hover:ease-in-out'>
                     <img 
                         className='!w-[50%]'
                         src={icon}
-                        alt={title} />
+                        alt={title} 
+                    />
                 </div>
             ) : (
                 <Flip>
@@ -27,7 +28,8 @@ export default function Skill({ title, icon, dashboard }: SkillProps) {
                             <img 
                                 className='!w-[50%]'
                                 src={icon}
-                                alt={title} />
+                                alt={title} 
+                            />
                         </div>
                     </PlayfolioTooltip>
             </Flip>

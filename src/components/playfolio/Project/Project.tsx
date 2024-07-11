@@ -55,7 +55,7 @@ export default function Project({ title, description, github, skills, video, liv
                                     <SkillIcon 
                                         key={skill}
                                         title={skill}
-                                        icon={SkillMappings[skill]}
+                                        icon={SkillMappings[skill].src}
                                     />
                                 )}
                             </div>

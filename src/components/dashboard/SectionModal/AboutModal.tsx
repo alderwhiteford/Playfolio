@@ -39,7 +39,16 @@ export default function AboutModal({ handleClose, open }: AboutModalProps) {
             })
     }, []);
 
+    const validateIntroduction = (introduction: string): boolean => {
+        return introduction.split('**').length % 2 !== 0
+    }
+
     const onSubmit = ({ greeting, introduction}: AboutFormProps) => {
+        if (!validateIntroduction(introduction)) {
+            dispatch(setError('failedToUpdateAbout'))
+            return
+        }
+
         firebaseInstance.updateAbout(greeting, introduction)
             .then(() => {
                 dispatch(setSuccess('updatedAbout'))

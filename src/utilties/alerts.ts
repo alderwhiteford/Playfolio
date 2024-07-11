@@ -3,12 +3,14 @@ const errorMessages = {
     failedToSignOut: "Failed to log out, please try again!",
     failedToUpdateAbout: "Failed updaing the About section, please try again",
     failedToDeleteSkill: "Failed to all of the skills, please try again",
+    failedToCreateSkill: "Failed to create a new skill, please try again",
 }
 
 const successMessages = {
     signedIn: "Signed in successfully!",
     updatedAbout: "Successfully updated About section!",
     deletedSkills: "Successfully deleted all selected skills!",
+    createdSkill: "Successfully created a new skill!",
 }
 
 export type ErrorCode = keyof typeof errorMessages;
