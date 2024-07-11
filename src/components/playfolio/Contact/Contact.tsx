@@ -1,8 +1,7 @@
-import Email from "../../assets/contactIcons/emailIcon.png";
-import LinkedIn from "../../assets/contactIcons/linkedInIcon.png";
-import Instagram from "../../assets/contactIcons/instagramIcon.png";
+import Email from "@/assets/contactIcons/emailIcon.png";
+import LinkedIn from "@/assets/contactIcons/linkedInIcon.png";
+import Instagram from "@/assets/contactIcons/instagramIcon.png";
 import Image from "next/image";
-import { Tooltip } from "@mui/material";
 import { useState } from "react";
 
 type TouchPointProps = {

@@ -1,7 +1,7 @@
 import Image from "next/image";
-import LandingImage from '../assets/Landing.png'
-import Link from "@/components/Link/Link";
-import Reveal from "@/components/Reveal/Reveal";
+import LandingImage from '@/assets/Landing.png'
+import Link from "@/components/playfolio/Link/Link";
+import Reveal from "@/components/playfolio/Reveal/Reveal";
 import { SectionProps } from "@/pages";
 import { RefObject, forwardRef } from "react";
 

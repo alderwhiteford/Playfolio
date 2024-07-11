@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
-import Reveal from "../Reveal/Reveal";
+import Reveal from "@/components/playfolio/Reveal/Reveal";
 import  { ExperienceSectionProps } from "./CardExperience/CardExperience";
-import { Skill } from "../Project/Project";
+import { Skill } from "@/components/playfolio/Project/Project";
 import CardModal from "./CardModal/CardModal";
 
 type CardProps = {

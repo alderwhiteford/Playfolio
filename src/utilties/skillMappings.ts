@@ -20,7 +20,7 @@ import GCP from "../assets/skillIcons/gcp.png";
 
 const SkillMappings = {
     'AWS': AWS,
-    'AZURE': Azure,
+    'Azure': Azure,
     'C++': CPP,
     'CSS': CSS, 
     'Docker': Docker,

@@ -1,29 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import { Box, Modal } from "@mui/material"
 import CardExperience, { ExperienceSectionProps } from "../CardExperience/CardExperience";
-import { Skill } from "@/components/Project/Project";
-import Image from "next/image";
-import { SkillMappings } from "@/utilties/SkillMappings";
-import SkillIcon from "@/components/Skill/SkillIcon";
-
-const modalStyle = {
-    position: 'absolute' as 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: '700px',
-    maxHeight: '80%',
-    bgcolor: 'black',
-    boxShadow: 24,
-    p: 4,
-    padding: '40px',
-    borderRadius: '20px',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '20px',
-    overflow: 'scroll',
-  };
-
+import { Skill } from "@/components/playfolio/Project/Project";
+import { SkillMappings } from "@/utilties/skillMappings";
+import SkillIcon from "@/components/playfolio/Skill/SkillIcon";
 
 type CardModalProps = {
     handleClose: () => void,
@@ -76,7 +56,7 @@ export default function CardModal({ handleClose, open, link, logo, description, 
                         <SkillIcon 
                             key={skill}
                             title={skill}
-                            icon={SkillMappings[skill]}
+                            icon={SkillMappings[skill] as unknown as string}
                         />
                     )}
                 </div>

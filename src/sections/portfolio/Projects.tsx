@@ -1,11 +1,11 @@
-import Project from "@/components/Project/Project";
+import Project from "@/components/playfolio/Project/Project";
 
-import Voxeti from "../assets/videos/voxeti.gif";
-import Boxy from "../assets/videos/boxy.gif";
-import IsDevFree from "../assets/videos/isDevFree.gif";
-import WIP from "../assets/videos/wip.gif";
-import RapidMeet from "../assets/videos/RapidMeet.gif"
-import Playfolio from "../assets/videos/playfolio.gif"
+import Voxeti from "@/assets/videos/voxeti.gif";
+import Boxy from "@/assets/videos/boxy.gif";
+import IsDevFree from "@/assets/videos/isDevFree.gif";
+import WIP from "@/assets/videos/wip.gif";
+import RapidMeet from "@/assets/videos/RapidMeet.gif"
+import Playfolio from "@/assets/videos/playfolio.gif"
 import { SectionProps } from "@/pages";
 
 export default function Projects({ cursorEnter, cursorLeave }: SectionProps) {

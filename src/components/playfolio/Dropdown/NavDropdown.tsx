@@ -1,8 +1,8 @@
 import { SectionProps } from '@/pages';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react';
-import { LINKS, scrollOnClick } from '@/sections/Landing';
-import Link from '@/components/Link/Link';
+import { LINKS, scrollOnClick } from '@/sections/portfolio/Landing';
+import Link from '@/components/playfolio/Link/Link';
 
 type NavDropdownProps = {
     isVisible: boolean
