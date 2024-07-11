@@ -1,17 +1,16 @@
-import { SkillMappings } from "@/utilties/SkillMappings"
-import { Tooltip } from "@mui/material"
+/* eslint-disable @next/next/no-img-element */
 import Image, { StaticImageData } from "next/image"
 import PlayfolioTooltip from "../Tooltip/Tooltip"
 
 type SkillIconProps = {
     title: string,
-    icon: StaticImageData,
+    icon: string,
 }
 
 export default function SkillIcon({ title, icon }: SkillIconProps) {
     return (
         <PlayfolioTooltip title={title}>
-            <Image
+            <img
                 key={title}
                 src={icon}
                 alt=''

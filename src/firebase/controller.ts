@@ -1,12 +1,14 @@
 import { AboutPage } from "@/types/models";
 import { FirebaseApp, initializeApp } from "firebase/app";
 import { Auth, getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { doc, Firestore, getDoc, getFirestore, setDoc } from "firebase/firestore";
+import { collection, deleteDoc, doc, Firestore, getDoc, getDocs, getFirestore, query, setDoc, where } from "firebase/firestore";
+import { FirebaseStorage, getStorage } from "firebase/storage";
 
 export default class FirebaseController {
   public app: FirebaseApp
   public db: Firestore
   public auth: Auth
+  public storage: FirebaseStorage
 
   public constructor() {
     const firebaseConfig = {
@@ -21,10 +23,12 @@ export default class FirebaseController {
     const firebaseApp = initializeApp(firebaseConfig);
     const firebaseDb = getFirestore(firebaseApp);
     const firebaseAuth = getAuth(firebaseApp);
+    const firebaseStorage = getStorage(firebaseApp);
 
     this.app = firebaseApp
     this.db = firebaseDb
     this.auth = firebaseAuth
+    this.storage = firebaseStorage
   }
 
   /** AUTHENTICATION */
@@ -36,9 +40,9 @@ export default class FirebaseController {
       await this.auth.signOut()
   }
 
-  /** ABOUT PAGE */
+  /** ABOUT SECTION */
   public async updateAbout(greeting: string, introduction: string) {
-      const docRef = doc(this.db, 'sections', 'about')
+      const docRef = doc(this.db, 'about', 'about')
 
       await setDoc(docRef, {
           greeting,
@@ -47,9 +51,25 @@ export default class FirebaseController {
   }
 
   public async fetchAbout(): Promise<AboutPage> {
-      const docRef = doc(this.db, 'sections', 'about')
+      const docRef = doc(this.db, 'about', 'about')
       const docSnap = await getDoc(docRef)
 
       return docSnap.data() as AboutPage
+  }
+
+  /** SKILLS SECTION */
+  public async fetchSkills() {
+      const docSnap = await getDocs(collection(this.db, 'skills'))
+
+      return docSnap.docs.map((doc) => doc.data())
+  }
+
+  public async deleteSkill(title: string) {
+    const q = query(collection(this.db, "skills"), where("title", "==", title));
+    const querySnapshot = await getDocs(q);
+
+    querySnapshot.forEach(async (doc) => {
+      await deleteDoc(doc.ref);
+    });
   }
 }
