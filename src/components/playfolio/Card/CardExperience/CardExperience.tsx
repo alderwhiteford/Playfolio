@@ -23,11 +23,11 @@ export default function CardExperience({ inProgress, position, description, date
                         </h3>
                     </div>
                 </div>
-                <p className='text-white font-light text-base ml-12'>
+                <div className='text-white font-light text-base ml-12'>
                     <ul className='list-disc'>
                         {description?.map((desc) => <li className='mt-2 mb-2' key={desc}>{desc}</li>)}
                     </ul>
-                </p>
+                </div>
             </div>
         </div>
     )

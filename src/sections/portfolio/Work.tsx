@@ -10,8 +10,7 @@ export default function Work() {
                 <Card 
                     backgroundImage='https://i.imgur.com/WSFCoiE.jpg'
                     logo='https://i.imgur.com/ZoV1ekp.png'
-                    position='Chief of Software'
-                    dates='Jul. 2024 - Present'
+                    highlighted_position={0}
                     cursor='https://i.imgur.com/vmCGXvD.png'
                     link="https://www.instagram.com/generatenu/"
                     description="Generate is a student-led product development studio, working with industry clients and Northeastern founders from all backgrounds to turn their vision into reality."
@@ -62,8 +61,7 @@ export default function Work() {
                 <Card 
                     backgroundImage='https://i.imgur.com/4XwaPso.jpg'
                     logo='https://i.imgur.com/A990JUa.png'
-                    position='Photographer'
-                    dates='Sep. 2022 - Present' 
+                    highlighted_position={0}
                     cursor='https://i.imgur.com/SfSmpRo.png'
                     link="https://www.tastemakersmag.com/"
                     description="Tastemakers Magazine exists to give Northeastern students a voice in the music industry and help members develop their craft."
@@ -81,8 +79,7 @@ export default function Work() {
                 <Card 
                     backgroundImage='https://i.imgur.com/eqpNJeE.jpg'
                     logo='https://i.imgur.com/9OrIVkq.png'
-                    position='Web Developer'
-                    dates='Dec. 2023 - May 2024'
+                    highlighted_position={0}
                     cursor='https://i.imgur.com/usBJmYm.png'
                     link="https://scout.camd.northeastern.edu/"
                     description="Scout is Northeastern's one and only student-led design studio. It is composed of a series of creative teams that work solely with clients from within the university's entrepreneurial ecostystem."
@@ -103,8 +100,7 @@ export default function Work() {
                 <Card 
                     backgroundImage='https://i.imgur.com/fCbFz8N.png'
                     logo='https://i.imgur.com/rOFQAMh.png'
-                    position='Senior Associate'
-                    dates='Jan. 2022 - Jan. 2024'
+                    highlighted_position={0}
                     cursor='https://i.imgur.com/EzjoSBw.png'
                     link="https://huntingtonangelsnetwork.com/"
                     description="Huntington Angels Network (HAN) is a student-run organization whose mission is to grow the Northeastern venture community by connecting vetted and investment-ready start-ups to a global investor network of angel investors and venture capital firms. Since its foundation in 2017, the club has successfuly connected partnering ventures with $5.2 million in funding."
@@ -130,8 +126,7 @@ export default function Work() {
                 <Card 
                     backgroundImage='https://i.imgur.com/oDeM93Y.jpg'
                     logo='https://i.imgur.com/E7gnkWQ.png'
-                    position='Frontend Engineer Co-op'
-                    dates='Jul. 2023 - Dec. 2023'
+                    highlighted_position={0}
                     cursor='https://i.imgur.com/zudM8uM.png'
                     link="https://www.asicsdigital.com/"
                     description="ASICS Digital is a Boston-based company responsible for the continued development of ASICS's online platforms and services."
@@ -153,8 +148,7 @@ export default function Work() {
                 <Card 
                     backgroundImage='https://i.imgur.com/A6Wc8oR.jpg'
                     logo='https://i.imgur.com/u17e8mn.png'
-                    position='Digital Developer Co-op'
-                    dates='Jul. 2022 - Dec. 2022'
+                    highlighted_position={0}
                     cursor='https://i.imgur.com/VND1Xk0.png'
                     link="https://www.mfs.com/corporate/en/home.html"
                     description="MFS Investment Management is an American-based global investment manager, formerly known as Massachusetts Financial Services. Founded in 1924, MFS is one of the oldest asset management companies in the world and has been credited with pioneering the mutual fund."
@@ -176,8 +170,7 @@ export default function Work() {
                 <Card
                     backgroundImage='https://i.imgur.com/2EoWXS3.jpg'
                     logo='https://i.imgur.com/3iJe249.png'
-                    position='Peer Tutor - Computer Science'
-                    dates='Jan. 2022 - May. 2022'
+                    highlighted_position={0}
                     cursor='https://i.imgur.com/GhF5yjd.png'
                     link="https://northeasternpeertutoring.sites.northeastern.edu/"
                     description="Northeastern University's Peer Tutoring program is a free service offered to all students. The program is designed to help students understand course material, improve study strategies, and develop problem-solving skills."

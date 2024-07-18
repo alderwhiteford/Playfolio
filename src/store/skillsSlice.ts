@@ -1,16 +1,16 @@
-import { AboutPage, Skill } from "@/types/models";
+import { Skill } from "@/types/models";
 import { createSlice } from "@reduxjs/toolkit";
 
 type SkillsState = {
-    skills: Skill[];
+    skills?: Skill[];
 }
 
 const initialState: SkillsState = {
-    skills: []
+    skills: undefined
 }
 
 const aboutSlice = createSlice({
-    name: 'about',
+    name: 'skills',
     initialState,
     reducers: {
         setSkills: (state, action) => {

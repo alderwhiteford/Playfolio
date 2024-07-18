@@ -56,7 +56,7 @@ export default function CardModal({ handleClose, open, link, logo, description, 
                         <SkillIcon 
                             key={skill}
                             title={skill}
-                            icon={SkillMappings[skill] as unknown as string}
+                            icon={SkillMappings[skill]?.src}
                         />
                     )}
                 </div>

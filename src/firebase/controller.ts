@@ -1,4 +1,4 @@
-import { AboutPage } from "@/types/models";
+import { AboutPage, IdToWork, Work } from "@/types/models";
 import { FirebaseApp, initializeApp } from "firebase/app";
 import { Auth, getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { addDoc, collection, deleteDoc, doc, Firestore, getDoc, getDocs, getFirestore, query, setDoc, where } from "firebase/firestore";
@@ -85,5 +85,27 @@ export default class FirebaseController {
     });
 
     return { title, logo: downloadUrl }
+  }
+
+  /** WORK SECTION */
+  public async fetchWorks(): Promise<IdToWork[]> {
+    const docSnap = await getDocs(collection(this.db, 'work'))
+
+    return docSnap.docs.map((doc) => ({ id: doc.id, work: doc.data() as Work }))
+  }
+
+  public async createWork(work: Work): Promise<string> {
+    const docSnap = await addDoc(collection(this.db, "work"), work);
+    return docSnap.id
+  }
+
+  public async deleteWork(id: string): Promise<void> {
+    await deleteDoc(doc(this.db, "work", id));
+  }
+
+  public async updateWork(id: string, work: Work): Promise<void> {
+    const docRef = doc(this.db, 'work', id)
+
+    await setDoc(docRef, { ...work });
   }
 }

@@ -8,22 +8,23 @@ import CardModal from "./CardModal/CardModal";
 type CardProps = {
     backgroundImage: string
     logo: string
-    position: string
-    dates: string
     cursor: string
     link: string
     experiences? : ExperienceSectionProps[]
     description: string,
-    skills?: Skill[]
+    skills?: Skill[],
+    highlighted_position: number,
 }
 
-export default function Card({ backgroundImage, logo, position, dates, cursor, link, description, experiences, skills }: CardProps) {
+export default function Card({ backgroundImage, logo, cursor, link, description, experiences, skills, highlighted_position }: CardProps) {
     const [hover, setHover] = useState(false)
 
     // Modal states:
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
+    const highlighted_index = highlighted_position === -1 ? 0 : highlighted_position;
     
     return (
         <>
@@ -46,10 +47,10 @@ export default function Card({ backgroundImage, logo, position, dates, cursor, l
                     />
                     <div className={`absolute z-30 text-3xl translate-y-12 opacity-0 ${ hover && '!opacity-100'} transition-all ease-in-out items-center flex flex-col`}>
                         <h1 className='font-light'>
-                            {position}
+                            {experiences?.[highlighted_index]?.position}
                         </h1>
                         <h3 className='font-light text-base mt-3'>
-                            {dates}
+                            {experiences?.[highlighted_index]?.dates}
                         </h3>
                     </div>
                 </div>
