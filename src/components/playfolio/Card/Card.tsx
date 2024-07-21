@@ -2,8 +2,8 @@
 import { useState } from "react";
 import Reveal from "@/components/playfolio/Reveal/Reveal";
 import  { ExperienceSectionProps } from "./CardExperience/CardExperience";
-import { Skill } from "@/components/playfolio/Project/Project";
 import CardModal from "./CardModal/CardModal";
+import { Skill } from "@/types/models";
 
 type CardProps = {
     backgroundImage: string

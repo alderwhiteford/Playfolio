@@ -25,11 +25,11 @@ export default function Home() {
         'Contact': LocalPhoneIcon,
     }
     const sectionModals: Record<HomeSections, React.ReactNode> = {
-        'About': <AboutModal open={selectedSection === 'About'} handleClose={() => setSelectedSection(undefined)} />,
-        'Skills':  <SkillsModal open={selectedSection === 'Skills'} handleClose={() => setSelectedSection(undefined)} />,
-        'Work': <WorkModal open={selectedSection === 'Work'} handleClose={() => setSelectedSection(undefined)} />,
-        'Projects': <AboutModal open={selectedSection === 'Projects'} handleClose={() => setSelectedSection(undefined)} />,
-        'Contact': <AboutModal open={selectedSection === 'Contact'} handleClose={() => setSelectedSection(undefined)} />,
+        'About': <AboutModal key='about' open={selectedSection === 'About'} handleClose={() => setSelectedSection(undefined)} />,
+        'Skills':  <SkillsModal key='skills' open={selectedSection === 'Skills'} handleClose={() => setSelectedSection(undefined)} />,
+        'Work': <WorkModal key='work' open={selectedSection === 'Work'} handleClose={() => setSelectedSection(undefined)} />,
+        'Projects': <AboutModal key='projects' open={selectedSection === 'Projects'} handleClose={() => setSelectedSection(undefined)} />,
+        'Contact': <AboutModal key='contact' open={selectedSection === 'Contact'} handleClose={() => setSelectedSection(undefined)} />,
     }
 
     return (

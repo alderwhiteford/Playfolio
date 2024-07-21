@@ -83,7 +83,6 @@ export default function WorkForm({ allSkills, work, setSelectedWork, handleDelet
         watch,
         control,
         setValue,
-        reset,
     } = useForm<Work>({
         defaultValues: {
             description: work?.description || '',
@@ -104,14 +103,12 @@ export default function WorkForm({ allSkills, work, setSelectedWork, handleDelet
 
     const [positions, description, hover_emoji, link, logo, image, skills, highlighted_position] = watch(['positions', 'description', 'hover_emoji', 'link', 'logo', 'image', 'skills', 'highlighted_position']);
 
-    console.log(positions)
-
     return (
         <form 
-            className='absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] w-[95%] h-[80%] bg-gray-900 bg-opacity-90 border-gray-500 border-[1px] shadow-lg p-[40px] flex flex-row gap-[20px] rounded-xl overflow-hidden'
+            className='absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] w-[95%] max-h-[80%] bg-gray-900 bg-opacity-90 border-gray-500 border-[1px] shadow-lg p-[40px] flex flex-row gap-[20px] rounded-xl overflow-hidden'
             onSubmit={handleSubmit(onSubmit)}
         >
-            <div className='flex flex-col gap-[20px] w-[100%] h-[100%] overflow-scroll'>
+            <div className='flex flex-col gap-[20px] w-full overflow-scroll'>
                 <h1 className='text-white text-2xl font-medium'>
                     Work
                 </h1>
@@ -245,7 +242,7 @@ export default function WorkForm({ allSkills, work, setSelectedWork, handleDelet
                 <div className='flex flex-col gap-2 w-full'>
                     <h3 className='text-white font-light text-md'>Relevant Skills</h3>
                     <Select
-                        {...register('skills', { required: true })}
+                        {...register('skills')}
                         error={Boolean(errors.hover_emoji)}
                         fullWidth
                         required
@@ -273,7 +270,7 @@ export default function WorkForm({ allSkills, work, setSelectedWork, handleDelet
                     description={description}
                     experiences={parsePositions(positions)}
                     highlighted_position={highlighted_position}
-                    skills={skills as SkillTitle[]}
+                    skills={skills.map((s) => allSkills.find((skill) => skill.title === s) as Skill)}
                 />
                 <div className='flex flex-col gap-5'>
                     <Button

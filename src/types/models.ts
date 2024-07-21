@@ -25,6 +25,7 @@ export type Work = {
     positions: WorkPosition[],
     highlighted_position: number,
     skills: string[],
+    order_position: number,
 }
 
 export type IdToWork = {

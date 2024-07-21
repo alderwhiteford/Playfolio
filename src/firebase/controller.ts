@@ -1,7 +1,7 @@
 import { AboutPage, IdToWork, Work } from "@/types/models";
 import { FirebaseApp, initializeApp } from "firebase/app";
 import { Auth, getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { addDoc, collection, deleteDoc, doc, Firestore, getDoc, getDocs, getFirestore, query, setDoc, where } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, Firestore, getDoc, getDocs, getFirestore, orderBy, query, setDoc, where, writeBatch } from "firebase/firestore";
 import { FirebaseStorage, getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 
 export default class FirebaseController {
@@ -89,7 +89,8 @@ export default class FirebaseController {
 
   /** WORK SECTION */
   public async fetchWorks(): Promise<IdToWork[]> {
-    const docSnap = await getDocs(collection(this.db, 'work'))
+    const ref = collection(this.db, 'work')
+    const docSnap = await getDocs(query(ref, orderBy('order_position', 'asc')))
 
     return docSnap.docs.map((doc) => ({ id: doc.id, work: doc.data() as Work }))
   }
@@ -107,5 +108,16 @@ export default class FirebaseController {
     const docRef = doc(this.db, 'work', id)
 
     await setDoc(docRef, { ...work });
+  }
+
+  public async batchUpdateWorkOrderPosition(batchIndexUpdates: Record<string, number>) {
+    const batch = writeBatch(this.db); 
+
+    Object.entries(batchIndexUpdates).forEach(([id, order_position]) => {
+      const docRef = doc(this.db, 'work', id);
+      batch.update(docRef, { order_position });
+    });
+
+    await batch.commit()
   }
 }

@@ -7,6 +7,8 @@ const errorMessages = {
     failedToCreateWork: "Failed to create a new work experience, please try again",
     failedToFetchWorks: "Failed to fetch work experiences, please try again",
     failedToDeleteWork: "Failed to delete the work experience, please try again",
+    failedToUpdateWorkOrder: "Failed to update the work order, please try again",
+    failedToUpdateWork: "Failed to update the work experience, please try again",
 }
 
 const successMessages = {
@@ -16,6 +18,8 @@ const successMessages = {
     createdSkill: "Successfully created a new skill!",
     createdWork: "Successfully created a new work experience!",
     deletedWork: "Successfully deleted the work experience!",
+    updatedWorkOrder: "Successfully updated the work order!",
+    updatedWork: "Successfully updated the work experience!",
 }
 
 export type ErrorCode = keyof typeof errorMessages;
