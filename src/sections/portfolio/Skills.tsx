@@ -3,9 +3,12 @@ import { useContext, useEffect, useState } from "react";
 import { FirebaseContext } from "@/hooks/useFirebase";
 import FirebaseController from "@/firebase/controller";
 import { Skill as SkillModel } from "@/types/models";
+import { useStateDispatch, useStateSelector } from "@/store/store";
+import { setSkills } from "@/store/skillsSlice";
 
 export default function Skills() {
-    const [skills, setSkills] = useState<SkillModel[]>([]);
+    const { skills } = useStateSelector((state) => state.skills);
+    const dispatch = useStateDispatch();
     const firebaseInstance = useContext(FirebaseContext) as FirebaseController;
 
     useEffect(() => {
@@ -13,9 +16,9 @@ export default function Skills() {
             .then((data) => {
                 let skills = data as SkillModel[];
                 skills.sort((a, b) => a.title.localeCompare(b.title));
-                setSkills(skills);
+                dispatch(setSkills(skills));
             });
-    }, [firebaseInstance])
+    }, [dispatch, firebaseInstance])
 
     
     return (
@@ -24,7 +27,7 @@ export default function Skills() {
                 Skills.
             </h1>
             <div className='flex flex-wrap flex-row w-full justify-center mt-10'>
-                {skills.map((skill) => {
+                {skills?.map((skill) => {
                     return (
                         <Skill 
                             key={skill.title}

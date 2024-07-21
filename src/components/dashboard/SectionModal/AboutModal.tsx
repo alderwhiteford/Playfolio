@@ -32,13 +32,6 @@ export default function AboutModal({ handleClose, open }: AboutModalProps) {
 
     const firebaseInstance = useContext(FirebaseContext) as FirebaseController
 
-    useEffect(() => {
-        firebaseInstance.fetchAbout()
-            .then((data) => {
-                dispatch(setAbout(data))
-            })
-    }, []);
-
     const validateIntroduction = (introduction: string): boolean => {
         return introduction.split('**').length % 2 !== 0
     }
@@ -59,12 +52,21 @@ export default function AboutModal({ handleClose, open }: AboutModalProps) {
             })
     }
 
+    useEffect(() => {
+        if (!greeting || !introduction) {
+            firebaseInstance.fetchAbout()
+                .then((data) => {
+                    dispatch(setAbout(data))
+                });
+        }
+    }, []);
+
     return (
         <Modal
             open={open}
             onClose={() => {
-                setValue('greeting', greeting)
-                setValue('introduction', introduction)
+                setValue('greeting', greeting ?? '')
+                setValue('introduction', introduction ?? '')
                 handleClose()
             }}
             disableAutoFocus

@@ -2,7 +2,6 @@
 
 import Flip from "@/components/playfolio/Reveal/Flip";
 import PlayfolioTooltip from "@/components/playfolio/Tooltip/Tooltip";
-import { SkillMappings } from "@/utilties/skillMappings";
 
 type SkillProps = {
     title: string,

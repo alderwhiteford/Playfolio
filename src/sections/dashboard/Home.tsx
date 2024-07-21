@@ -9,6 +9,7 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import SectionButton from "@/components/dashboard/SectionButton/SectionButton";
 import AboutModal from "@/components/dashboard/SectionModal/AboutModal";
 import SkillsModal from "@/components/dashboard/SectionModal/SkillsModal";
+import WorkModal from "@/components/dashboard/SectionModal/WorkModal";
 
 type HomeSections = 'About' | 'Skills' | 'Work' | 'Projects' | 'Contact'
 
@@ -24,11 +25,11 @@ export default function Home() {
         'Contact': LocalPhoneIcon,
     }
     const sectionModals: Record<HomeSections, React.ReactNode> = {
-        'About': <AboutModal open={selectedSection === 'About'} handleClose={() => setSelectedSection(undefined)} />,
-        'Skills':  <SkillsModal open={selectedSection === 'Skills'} handleClose={() => setSelectedSection(undefined)} />,
-        'Work': <AboutModal open={selectedSection === 'Work'} handleClose={() => setSelectedSection(undefined)} />,
-        'Projects': <AboutModal open={selectedSection === 'Projects'} handleClose={() => setSelectedSection(undefined)} />,
-        'Contact': <AboutModal open={selectedSection === 'Contact'} handleClose={() => setSelectedSection(undefined)} />,
+        'About': <AboutModal key='about' open={selectedSection === 'About'} handleClose={() => setSelectedSection(undefined)} />,
+        'Skills':  <SkillsModal key='skills' open={selectedSection === 'Skills'} handleClose={() => setSelectedSection(undefined)} />,
+        'Work': <WorkModal key='work' open={selectedSection === 'Work'} handleClose={() => setSelectedSection(undefined)} />,
+        'Projects': <AboutModal key='projects' open={selectedSection === 'Projects'} handleClose={() => setSelectedSection(undefined)} />,
+        'Contact': <AboutModal key='contact' open={selectedSection === 'Contact'} handleClose={() => setSelectedSection(undefined)} />,
     }
 
     return (

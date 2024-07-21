@@ -7,6 +7,8 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { Provider } from "react-redux";
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     const router = useRouter();
@@ -35,9 +37,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return (
         <ThemeProvider theme={darkTheme}>
             <FirebaseProvider>
-                <Provider store={store}>
-                    {children}
-                </Provider>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <Provider store={store}>
+                        {children}
+                    </Provider>
+                </LocalizationProvider>
             </FirebaseProvider>
         </ThemeProvider>
     )

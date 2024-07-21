@@ -1,9 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { Box, Modal } from "@mui/material"
 import CardExperience, { ExperienceSectionProps } from "../CardExperience/CardExperience";
-import { Skill } from "@/components/playfolio/Project/Project";
-import { SkillMappings } from "@/utilties/skillMappings";
 import SkillIcon from "@/components/playfolio/Skill/SkillIcon";
+import { Skill } from "@/types/models";
 
 type CardModalProps = {
     handleClose: () => void,
@@ -54,9 +53,9 @@ export default function CardModal({ handleClose, open, link, logo, description, 
                 <div className='flex flex-row flex-wrap gap-3 mt-5'>
                     {skills?.map((skill) =>
                         <SkillIcon 
-                            key={skill}
-                            title={skill}
-                            icon={SkillMappings[skill] as unknown as string}
+                            key={skill.title}
+                            title={skill.title}
+                            icon={skill.logo}
                         />
                     )}
                 </div>

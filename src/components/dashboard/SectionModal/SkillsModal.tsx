@@ -65,7 +65,7 @@ export default function SkillsModal({ handleClose, open }: SkillsModalProps) {
                 })
         );
     
-        dispatch(setSkills(skills.filter((s) => !selectedSkills.includes(s.title))));
+        dispatch(setSkills(skills?.filter((s) => !selectedSkills.includes(s.title))));
         setSelectedSkills([]);
 
         if (!error) {
@@ -79,23 +79,29 @@ export default function SkillsModal({ handleClose, open }: SkillsModalProps) {
             return;
         }
 
-        firebaseInstance.createSkill(data.title, data.logo[0])
-            .then((skill) => {
-                dispatch(setSkills([...skills, skill]))
-                dispatch(setSuccess('createdSkill'))
-                setAdding(false);
-                reset();
-            })
-            .catch(() => {
-                dispatch(setError('failedToCreateSkill'))
-            })
+        if (skills) {
+            firebaseInstance.createSkill(data.title, data.logo[0])
+                .then((skill) => {
+                    dispatch(setSkills([...skills, skill]))
+                    dispatch(setSuccess('createdSkill'))
+                    setAdding(false);
+                    reset();
+                })
+                .catch(() => {
+                    dispatch(setError('failedToCreateSkill'))
+                })
+        } else {
+            dispatch(setError('failedToCreateSkill'))
+        }
     }
 
     useEffect(() => {
-        firebaseInstance.fetchSkills()
-            .then((data) => {
-                dispatch(setSkills(data))
-            })
+        if (!skills) {
+            firebaseInstance.fetchSkills()
+                .then((data) => {
+                    dispatch(setSkills(data))
+                });
+        }
     }, []);
 
     const SkillsViewContent = () => {
