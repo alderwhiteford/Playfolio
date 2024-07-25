@@ -28,7 +28,22 @@ export type Work = {
     order_position: number,
 }
 
+export type Project = {
+    title: string,
+    description: string,
+    github?: string,
+    additionalInfo?: string,
+    skills: Skill[],
+    video: string,
+    liveLink?: string,
+}
+
 export type IdToWork = {
     id: string,
     work: Work,
+}
+
+export type IdToProject = {
+    id: string,
+    project: Project,
 }

@@ -120,4 +120,11 @@ export default class FirebaseController {
 
     await batch.commit()
   }
+
+  /** PROJECT SECTION */
+  public async fetchProjects() {
+    const docSnap = await getDocs(collection(this.db, 'projects'))
+
+    return docSnap.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
+  }
 }
