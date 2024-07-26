@@ -28,7 +28,7 @@ export type Work = {
     order_position: number,
 }
 
-export type IdToWork = {
+export type IdToItem<T> = {
     id: string,
-    work: Work,
+    data: T,
 }
