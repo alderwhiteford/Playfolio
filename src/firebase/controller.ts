@@ -1,4 +1,4 @@
-import { AboutPage, IdToWork, Work } from "@/types/models";
+import { AboutPage, IdToItem, Work } from "@/types/models";
 import { FirebaseApp, initializeApp } from "firebase/app";
 import { Auth, getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { addDoc, collection, deleteDoc, doc, Firestore, getDoc, getDocs, getFirestore, orderBy, query, setDoc, where, writeBatch } from "firebase/firestore";
@@ -88,11 +88,11 @@ export default class FirebaseController {
   }
 
   /** WORK SECTION */
-  public async fetchWorks(): Promise<IdToWork[]> {
+  public async fetchWorks(): Promise<IdToItem<Work>[]> {
     const ref = collection(this.db, 'work')
     const docSnap = await getDocs(query(ref, orderBy('order_position', 'asc')))
 
-    return docSnap.docs.map((doc) => ({ id: doc.id, work: doc.data() as Work }))
+    return docSnap.docs.map((doc) => ({ id: doc.id, data: doc.data() as Work}))
   }
 
   public async createWork(work: Work): Promise<string> {

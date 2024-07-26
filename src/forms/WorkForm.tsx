@@ -1,7 +1,6 @@
 import Card from "@/components/playfolio/Card/Card";
 import { ExperienceSectionProps } from "@/components/playfolio/Card/CardExperience/CardExperience";
-import { IdToWork, Skill, Work, WorkPosition } from "@/types/models";
-import { Skill as SkillTitle } from "@/components/playfolio/Project/Project";
+import { IdToItem, Skill, Work, WorkPosition } from "@/types/models";
 import { Button, Checkbox, MenuItem, Select, TextField } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
 import { Dispatch, SetStateAction, useState } from "react";
@@ -66,7 +65,7 @@ export const parsePositions = (positions?: WorkPosition[]): ExperienceSectionPro
 
 type WorkFormProps = {
     allSkills: Skill[],
-    setSelectedWork: Dispatch<SetStateAction<IdToWork | undefined>>
+    setSelectedWork: Dispatch<SetStateAction<IdToItem<Work> | undefined>>
     handleDelete: () => void,
     onSubmit: (work: Work) => void,
     setIsCreating: Dispatch<SetStateAction<boolean>>,

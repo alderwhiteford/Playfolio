@@ -1,8 +1,8 @@
-import { IdToWork } from "@/types/models";
+import { IdToItem, Work } from "@/types/models";
 import { createSlice } from "@reduxjs/toolkit";
 
 type WorkState = {
-    works?: IdToWork[];
+    works?: IdToItem<Work>[];
 }
 
 const initialState: WorkState = {
