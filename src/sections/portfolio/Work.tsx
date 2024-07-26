@@ -5,7 +5,7 @@ import { FirebaseContext } from "@/hooks/useFirebase";
 import { useStateDispatch, useStateSelector } from "@/store/store";
 import { setWorks } from "@/store/worksSlice";
 import { Skill } from "@/types/models";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 
 export default function Work() {
     const { works } = useStateSelector((state) => state.works);
@@ -31,14 +31,14 @@ export default function Work() {
                     return (
                         <Card 
                             key={work.id}
-                            backgroundImage={work.work.image}
-                            logo={work.work.logo}
-                            highlighted_position={work.work.highlighted_position}
-                            cursor={work.work.hover_emoji}
-                            link={work.work.link}
-                            description={work.work.description}
-                            experiences={parsePositions(work.work.positions)}
-                            skills={work.work.skills.map((s) => skills?.find((skill) => skill.title === s) as Skill)}
+                            backgroundImage={work.data.image}
+                            logo={work.data.logo}
+                            highlighted_position={work.data.highlighted_position}
+                            cursor={work.data.hover_emoji}
+                            link={work.data.link}
+                            description={work.data.description}
+                            experiences={parsePositions(work.data.positions)}
+                            skills={work.data.skills.map((s) => skills?.find((skill) => skill.title === s) as Skill)}
                         />
                     )
                 })}
