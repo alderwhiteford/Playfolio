@@ -38,12 +38,8 @@ export type Project = {
     liveLink?: string,
 }
 
-export type IdToWork = {
+export type IdToItem<T> = {
     id: string,
-    work: Work,
+    data: T,
 }
 
-export type IdToProject = {
-    id: string,
-    project: Project,
-}
