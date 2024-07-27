@@ -17,6 +17,7 @@ type DragNDropItem<T> = {
 }
 
 type DragNDropProps<T> = {
+    collectionName: string;
     items: DragNDropItem<T>[];
     setState: ActionCreatorWithPayload<any, any>;
     dispatch: AppDispatch;
@@ -24,7 +25,7 @@ type DragNDropProps<T> = {
     ItemComponent: (item: IdToItem<T>) => React.ReactNode;
 }
 
-export default function DragNDrop<T>({ items, setState, dispatch, firebaseInstance, ItemComponent }: DragNDropProps<T>) {
+export default function DragNDrop<T>({ collectionName, items, setState, dispatch, firebaseInstance, ItemComponent }: DragNDropProps<T>) {
     const [indexDragging, setIndexDragging] = useState<number>(-1);
     const [indexDraggingOver, setIndexDraggingOver] = useState<number>(-1);
 
@@ -50,25 +51,24 @@ export default function DragNDrop<T>({ items, setState, dispatch, firebaseInstan
                 }
             }
 
-            // Update the work order:
-            const oldWorks = items;
-            const newWorks = items.map((item) => {
+            const oldItems = items;
+            const newItems = items.map((item) => {
                 if (batchIndexUpdates[item.id]) {
                     item = {id: item.id, data: { ...item.data, order_position: batchIndexUpdates[item.id] }};
                 }
                 return item;
             });
-            newWorks.sort((a, b) => a.data.order_position - b.data.order_position);
-            dispatch(setState(newWorks));
+            newItems.sort((a, b) => a.data.order_position - b.data.order_position);
+            dispatch(setState(newItems));
 
-            firebaseInstance.batchUpdateWorkOrderPosition(batchIndexUpdates)
+            firebaseInstance.batchUpdateItemOrderPosition(batchIndexUpdates, collectionName)
                 .then(() => {
-                    dispatch(setSuccess('updatedWorkOrder'));
+                    dispatch(setSuccess('updatedItemOrder'));
                 })
-                .catch(() => {
-                    // Roll back the works
-                    dispatch(setState(oldWorks));
-                    dispatch(setError('failedToUpdateWorkOrder'));
+                .catch((error) => {
+                    // Roll back the items
+                    dispatch(setState(oldItems));
+                    dispatch(setError('failedToUpdateItemOrder'));
                 })
         }
 

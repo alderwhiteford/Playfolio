@@ -32,10 +32,11 @@ export type Project = {
     title: string,
     description: string,
     github?: string,
-    additionalInfo?: string,
-    skills: Skill[],
-    video: string,
-    liveLink?: string,
+    additional_info?: string,
+    skills: string[],
+    image: string,
+    live_link?: string,
+    order_position: number,
 }
 
 export type IdToItem<T> = {

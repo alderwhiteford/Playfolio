@@ -3,7 +3,7 @@
 import FirebaseController from "@/firebase/controller";
 import { FirebaseContext } from "@/hooks/useFirebase";
 import { Button, Modal } from "@mui/material";
-import { DragEvent, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useStateDispatch, useStateSelector } from "@/store/store";
 import { setError, setSuccess } from "@/store/alertSlice";
 import { setWorks } from "@/store/worksSlice";
@@ -26,8 +26,6 @@ export default function WorkModal({ handleClose, open }: WorkModalProps) {
 
     const [selectedWork, setSelectedWork] = useState<IdToItem<Work> | undefined>();
     const [isCreating, setIsCreating] = useState<boolean>(false);
-    const [indexDragging, setIndexDragging] = useState<number>(-1);
-    const [indexDraggingOver, setIndexDraggingOver] = useState<number>(-1);
 
     const handleDelete = () => {
         if (selectedWork) {
@@ -56,23 +54,23 @@ export default function WorkModal({ handleClose, open }: WorkModalProps) {
                   return position;
                 }
             });
-
-            work.order_position = works ? works.length + 1 : 0;
             
             if (selectedWork) {
+                work.order_position = selectedWork.data.order_position;
                 firebaseInstance.updateWork(selectedWork.id, work)
                     .then(() => {
                         dispatch(setSuccess('updatedWork'))
-                        dispatch(setWorks(works?.map((w) => w.id === selectedWork.id ? { id: w.id, work } : w) as IdToItem<Work>[]))
+                        dispatch(setWorks(works?.map((w) => w.id === selectedWork.id ? { id: w.id, data: work } : w) as IdToItem<Work>[]))
                     })
                     .catch(() => {
                         dispatch(setError('failedToUpdateWork'))
                     })
             } else {
+                work.order_position = works ? works.length + 1 : 1;
                 firebaseInstance.createWork(work)
                     .then((id) => {
                         dispatch(setSuccess('createdWork'))
-                        dispatch(setWorks([...(works as IdToItem<Work>[]), { id, work }]))
+                        dispatch(setWorks([...(works as IdToItem<Work>[]), { id, data: work }]))
                         setSelectedWork({ id, data: work });
                         setIsCreating(false);
                     })
@@ -131,6 +129,7 @@ export default function WorkModal({ handleClose, open }: WorkModalProps) {
             onClose={() => {
                 handleClose();
                 setSelectedWork(undefined);
+                setIsCreating(false);
             }}
             disableAutoFocus
         >
@@ -147,6 +146,7 @@ export default function WorkModal({ handleClose, open }: WorkModalProps) {
                         { 
                             works && 
                             <DragNDrop
+                                collectionName="work"
                                 items={works}
                                 setState={setWorks}
                                 dispatch={dispatch}

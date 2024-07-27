@@ -3,6 +3,7 @@ import alertReducer from "@/store/alertSlice";
 import aboutReducer from "@/store/aboutSlice";
 import skillsReducer from "@/store/skillsSlice";
 import worksReducer from '@/store/worksSlice';
+import projectsReducer from '@/store/projectsSlice';
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 const combinedReducers = combineReducers({
@@ -10,6 +11,7 @@ const combinedReducers = combineReducers({
   about: aboutReducer,
   skills: skillsReducer,
   works: worksReducer,
+  projects: projectsReducer,
 });
 
 export const store = configureStore({

@@ -72,7 +72,7 @@ type WorkFormProps = {
     work?: Work,
 }
 
-export default function WorkForm({ allSkills, work, setSelectedWork, handleDelete, onSubmit, setIsCreating }: WorkFormProps) {
+export default function  WorkForm({ allSkills, work, setSelectedWork, handleDelete, onSubmit, setIsCreating }: WorkFormProps) {
     const [deleteState, setDeleteState] = useState<'none' | 'pending'>('none');
 
     const { 
@@ -242,7 +242,7 @@ export default function WorkForm({ allSkills, work, setSelectedWork, handleDelet
                     <h3 className='text-white font-light text-md'>Relevant Skills</h3>
                     <Select
                         {...register('skills')}
-                        error={Boolean(errors.hover_emoji)}
+                        error={Boolean(errors.skills)}
                         fullWidth
                         required
                         multiple

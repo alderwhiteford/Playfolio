@@ -4,16 +4,12 @@ import Image from "next/image";
 import GitHub from "@/assets/skillIcons/github.png";
 import InfoIcon from "@/assets/miscellaneous/infoIcon.png";
 import EyeIcon from "@/assets/miscellaneous/eyeIcon.png"
-import { SkillMappings } from "@/utilties/skillMappings";
 import Flip from "@/components/playfolio/Reveal/Flip";
 import { SectionProps } from "@/pages";
 import SkillIcon from "@/components/playfolio/Skill/SkillIcon";
 import Reveal from "../Reveal/Reveal";
 import PlayfolioTooltip from "../Tooltip/Tooltip";
-
-export type Skill = 'AWS' | 'Azure' | 'C++' | 'CSS' | 'Docker' | 'Firebase' | 'GCP' | 'Golang' 
-            | 'HTML' | 'Java' | 'JavaScript' | 'MongoDB' | 'NextJS' | 'Postgres' | 'Python'
-            | 'ReactJS' | 'Redux' | 'Scala' | 'TypeScript';
+import { Skill } from "@/types/models";
 
 interface ProjectProps extends SectionProps {
     title: string,
@@ -21,11 +17,11 @@ interface ProjectProps extends SectionProps {
     github?: string,
     additionalInfo?: string,
     skills: Skill[],
-    video: string,
+    image: string,
     liveLink?: string,
 }
 
-export default function Project({ title, description, github, additionalInfo, skills, video, liveLink, cursorEnter, cursorLeave}: ProjectProps) {
+export default function Project({ title, description, github, additionalInfo, skills, image, liveLink, cursorEnter, cursorLeave}: ProjectProps) {
     return (
         <div className='grid grid-cols-1 lg:grid-cols-5 w-full gap-10 items-center lg:mt-10 lg:mb-10'>
             <div className='col-span-3 md:col-span-2'>
@@ -79,9 +75,9 @@ export default function Project({ title, description, github, additionalInfo, sk
                             <div className='flex flex-row flex-wrap gap-3'>
                                 {skills.map((skill) =>
                                     <SkillIcon 
-                                        key={skill}
-                                        title={skill}
-                                        icon={SkillMappings[skill].src}
+                                        key={skill.title}
+                                        title={skill.title}
+                                        icon={skill.logo}
                                     />
                                 )}
                             </div>
@@ -112,7 +108,7 @@ export default function Project({ title, description, github, additionalInfo, sk
             <div className='col-span-3 lg:pl-10'>
                 <Flip>
                     <img 
-                        src={video}
+                        src={image}
                         alt=''
                         className='rounded-2xl w-full h-full max-h-[450px] object-cover object-top'
                     />
