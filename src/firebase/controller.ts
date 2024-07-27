@@ -1,4 +1,4 @@
-import { AboutPage, IdToItem, Work } from "@/types/models";
+import { AboutPage, IdToItem, Project, Work } from "@/types/models";
 import { FirebaseApp, initializeApp } from "firebase/app";
 import { Auth, getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { addDoc, collection, deleteDoc, doc, Firestore, getDoc, getDocs, getFirestore, orderBy, query, setDoc, where, writeBatch } from "firebase/firestore";
@@ -107,14 +107,38 @@ export default class FirebaseController {
   public async updateWork(id: string, work: Work): Promise<void> {
     const docRef = doc(this.db, 'work', id)
 
-    await setDoc(docRef, { ...work });
+    await setDoc(docRef, work);
   }
 
-  public async batchUpdateWorkOrderPosition(batchIndexUpdates: Record<string, number>) {
+  /** PROJECT SECTION */
+  public async fetchProjects(): Promise<IdToItem<Project>[]> {
+    const ref = collection(this.db, 'projects')
+    const docSnap = await getDocs(query(ref, orderBy('order_position', 'asc')))
+
+    return docSnap.docs.map((doc) => ({ id: doc.id, data: doc.data() as Project}))
+  }
+
+  public async createProject(project: Project): Promise<string> {
+    const docSnap = await addDoc(collection(this.db, "projects"), project);
+    return docSnap.id
+  }
+
+  public async deleteProject(id: string): Promise<void> {
+    await deleteDoc(doc(this.db, "projects", id));
+  }
+
+  public async updateProject(id: string, project: Project): Promise<void> {
+    const docRef = doc(this.db, 'projects', id)
+
+    await setDoc(docRef, project);
+  }
+
+  /** MISCELLANEOUS */
+  public async batchUpdateItemOrderPosition(batchIndexUpdates: Record<string, number>, collectionName: string) {
     const batch = writeBatch(this.db); 
 
     Object.entries(batchIndexUpdates).forEach(([id, order_position]) => {
-      const docRef = doc(this.db, 'work', id);
+      const docRef = doc(this.db, collectionName, id);
       batch.update(docRef, { order_position });
     });
 

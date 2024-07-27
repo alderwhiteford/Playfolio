@@ -10,6 +10,7 @@ import SectionButton from "@/components/dashboard/SectionButton/SectionButton";
 import AboutModal from "@/components/dashboard/SectionModal/AboutModal";
 import SkillsModal from "@/components/dashboard/SectionModal/SkillsModal";
 import WorkModal from "@/components/dashboard/SectionModal/WorkModal";
+import ProjectModal from "@/components/dashboard/SectionModal/ProjectModal";
 
 type HomeSections = 'About' | 'Skills' | 'Work' | 'Projects' | 'Contact'
 
@@ -28,7 +29,7 @@ export default function Home() {
         'About': <AboutModal key='about' open={selectedSection === 'About'} handleClose={() => setSelectedSection(undefined)} />,
         'Skills':  <SkillsModal key='skills' open={selectedSection === 'Skills'} handleClose={() => setSelectedSection(undefined)} />,
         'Work': <WorkModal key='work' open={selectedSection === 'Work'} handleClose={() => setSelectedSection(undefined)} />,
-        'Projects': <AboutModal key='projects' open={selectedSection === 'Projects'} handleClose={() => setSelectedSection(undefined)} />,
+        'Projects': <ProjectModal key='projects' open={selectedSection === 'Projects'} handleClose={() => setSelectedSection(undefined)} />,
         'Contact': <AboutModal key='contact' open={selectedSection === 'Contact'} handleClose={() => setSelectedSection(undefined)} />,
     }
 
