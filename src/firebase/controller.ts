@@ -1,6 +1,7 @@
 import { AboutPage, IdToItem, Project, Work } from "@/types/models";
 import { FirebaseApp, initializeApp } from "firebase/app";
 import { Auth, getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAnalytics, Analytics } from "firebase/analytics";
 import { addDoc, collection, deleteDoc, doc, Firestore, getDoc, getDocs, getFirestore, orderBy, query, setDoc, where, writeBatch } from "firebase/firestore";
 import { FirebaseStorage, getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 
@@ -9,6 +10,7 @@ export default class FirebaseController {
   public db: Firestore
   public auth: Auth
   public storage: FirebaseStorage
+  public analytics: Analytics
 
   public constructor() {
     const firebaseConfig = {
@@ -24,11 +26,13 @@ export default class FirebaseController {
     const firebaseDb = getFirestore(firebaseApp);
     const firebaseAuth = getAuth(firebaseApp);
     const firebaseStorage = getStorage(firebaseApp);
+    const firebaseAnalytics = getAnalytics(firebaseApp);
 
     this.app = firebaseApp
     this.db = firebaseDb
     this.auth = firebaseAuth
     this.storage = firebaseStorage
+    this.analytics = firebaseAnalytics
   }
 
   /** AUTHENTICATION */
