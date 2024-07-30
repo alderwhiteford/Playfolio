@@ -1,8 +1,8 @@
-import { AboutPage, IdToItem, Project, Work } from "@/types/models";
+import { AboutPage, Contact, IdToItem, Project, Work } from "@/types/models";
 import { FirebaseApp, initializeApp } from "firebase/app";
 import { Auth, getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { getAnalytics, Analytics, isSupported } from "firebase/analytics";
-import { addDoc, collection, deleteDoc, doc, Firestore, getDoc, getDocs, getFirestore, orderBy, query, setDoc, where, writeBatch } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, Firestore, getDoc, getDocs, getFirestore, orderBy, query, setDoc, updateDoc, where, writeBatch } from "firebase/firestore";
 import { FirebaseStorage, getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 
 export default class FirebaseController {
@@ -32,10 +32,10 @@ export default class FirebaseController {
     this.auth = firebaseAuth
     this.storage = firebaseStorage
     
-    isSupported()
-      .then(() => {
-        this.analytics = getAnalytics(firebaseApp)
-      })
+    // isSupported()
+    //   .then(() => {
+    //     this.analytics = getAnalytics(firebaseApp)
+    //   })
   }
 
   /** AUTHENTICATION */
@@ -138,6 +138,19 @@ export default class FirebaseController {
     const docRef = doc(this.db, 'projects', id)
 
     await setDoc(docRef, project);
+  }
+
+  /** CONTACT SECTION */
+  public async fetchContacts(): Promise<IdToItem<Contact>[]> {
+    const docSnap = await getDocs(collection(this.db, 'contact'))
+
+    return docSnap.docs.map((doc) => ({ id: doc.id, data: doc.data() as Contact }))
+  }
+
+  public async updateContact(id: string, value: string) {
+    const docRef = doc(this.db, 'contact', id)
+
+    await updateDoc(docRef, { value });
   }
 
   /** MISCELLANEOUS */
