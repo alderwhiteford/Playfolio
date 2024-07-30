@@ -34,7 +34,7 @@ export default function TouchPoint({content, type}: TouchPointProps) {
     return (
         <div className='w-full flex flex-col items-center justify-center text-[15px] relative h-[300px]'>
             <a 
-                href={content}
+                href={config.type === 'email' ? 'mailto:' + content : content}
                 target={config.type === 'link' ? "_blank" : ""}
                 className='absolute'
                 onMouseEnter={() => setHover(true)}

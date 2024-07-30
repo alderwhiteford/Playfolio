@@ -39,6 +39,11 @@ export type Project = {
     order_position: number,
 }
 
+export type Contact = {
+    title: string,
+    value: string,
+}
+
 export type IdToItem<T> = {
     id: string,
     data: T,

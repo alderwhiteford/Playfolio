@@ -11,6 +11,7 @@ const errorMessages = {
     failedToUpdateProject: "Failed to update the project, please try again",
     failedToCreateProject: "Failed to create a new project, please try again",
     failedToUpdateItemOrder: "Failed to update the item order, please try again",
+    failedToUpdateContact: "Failed to update the contact information, please try again",
 }
 
 const successMessages = {
@@ -24,6 +25,7 @@ const successMessages = {
     updatedProject: "Successfully updated the project!",
     createdProject: "Successfully created a new project!",
     updatedItemOrder: "Successfully updated the item order!",
+    updatedContact: "Successfully updated the contact information!",
 }
 
 export type ErrorCode = keyof typeof errorMessages;
